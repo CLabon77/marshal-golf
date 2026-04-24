@@ -12,162 +12,166 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --green-dark: #1a4a2e;
-  --green-mid: #2d6e47;
-  --green-light: #3d8f5f;
-  --green-pale: #e8f5ee;
-  --green-muted: #c2dece;
-  --amber-pale: #fef3c7;
-  --red: #b91c1c;
-  --red-pale: #fee2e2;
-  --blue: #1d4ed8;
-  --blue-pale: #dbeafe;
-  --text: #1a1a1a;
-  --text-muted: #5a6a60;
-  --text-hint: #8fa396;
-  --bg: #f4f7f5;
-  --surface: #ffffff;
-  --border: rgba(45,110,71,0.15);
-  --border-strong: rgba(45,110,71,0.3);
-  --radius: 12px;
-  --radius-sm: 8px;
+  --gd: #1a4a2e; --gm: #2d6e47; --gl: #3d8f5f;
+  --gp: #e8f5ee; --gmu: #c2dece;
+  --ap: #fef3c7; --red: #b91c1c; --rp: #fee2e2;
+  --bl: #1d4ed8; --bp: #dbeafe;
+  --tx: #1a1a1a; --tm: #5a6a60; --th: #8fa396;
+  --bg: #f4f7f5; --sf: #ffffff;
+  --bo: rgba(45,110,71,0.15); --bs: rgba(45,110,71,0.3);
+  --r: 12px; --rs: 8px;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100dvh; max-width: 480px; margin: 0 auto; }
-.header { background: var(--green-dark); padding: 52px 20px 16px; display: flex; align-items: center; justify-content: space-between; }
-.header-title { color: #fff; font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }
-.header-sub { color: var(--green-muted); font-size: 13px; margin-top: 2px; }
-.flag-icon { width: 36px; height: 36px; background: var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-.nav { display: flex; background: var(--green-dark); padding: 0 20px; border-bottom: 2px solid var(--green-mid); }
-.nav-tab { flex: 1; padding: 10px 4px; font-size: 13px; font-weight: 500; color: var(--green-muted); background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -2px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: color .15s; }
-.nav-tab.active { color: #fff; border-bottom-color: #6ee8a0; }
-.content { padding: 16px; }
-.card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); padding: 16px; margin-bottom: 12px; }
-.card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-.card-title-icon { width: 26px; height: 26px; background: var(--green-pale); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
-label { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.4px; }
-input[type=text], input[type=number], input[type=time], select { width: 100%; height: 44px; padding: 0 12px; border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm); font-size: 15px; font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--surface); outline: none; appearance: none; -webkit-appearance: none; transition: border-color .15s; }
-input:focus, select:focus { border-color: var(--green-mid); }
-input[type=time] { font-family: 'DM Mono', monospace; font-size: 16px; }
-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6a60' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-.field { margin-bottom: 12px; }
-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 44px; padding: 0 16px; border-radius: var(--radius-sm); border: 1.5px solid var(--border-strong); background: var(--surface); color: var(--text); font-size: 14px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background .12s, transform .1s; }
-button:active { transform: scale(0.97); }
-.btn-primary { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
-.btn-now { height: 44px; padding: 0 12px; background: var(--green-pale); border-color: var(--green-muted); color: var(--green-dark); font-size: 13px; white-space: nowrap; }
-.btn-danger { border-color: #fca5a5; color: var(--red); background: #fff5f5; }
-.btn-sm { height: 34px; padding: 0 12px; font-size: 13px; }
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100dvh;max-width:480px;margin:0 auto}
+.header{background:var(--gd);padding:52px 20px 16px;display:flex;align-items:center;justify-content:space-between}
+.htitle{color:#fff;font-size:20px;font-weight:600;letter-spacing:-.3px}
+.hsub{color:var(--gmu);font-size:13px;margin-top:2px}
+.hicon{width:36px;height:36px;background:var(--gm);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.nav{display:flex;background:var(--gd);padding:0 20px;border-bottom:2px solid var(--gm)}
+.nt{flex:1;padding:10px 4px;font-size:13px;font-weight:500;color:var(--gmu);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:color .15s}
+.nt.active{color:#fff;border-bottom-color:#6ee8a0}
+.content{padding:16px}
+.card{background:var(--sf);border-radius:var(--r);border:1px solid var(--bo);padding:16px;margin-bottom:12px}
+.ct{font-size:15px;font-weight:600;color:var(--tx);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ci{width:26px;height:26px;background:var(--gp);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
+label{display:block;font-size:12px;font-weight:500;color:var(--tm);margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px}
+input[type=text],input[type=number],input[type=time],select,textarea{width:100%;border:1.5px solid var(--bs);border-radius:var(--rs);font-size:15px;font-family:'DM Sans',sans-serif;color:var(--tx);background:var(--sf);outline:none;appearance:none;-webkit-appearance:none;transition:border-color .15s}
+input[type=text],input[type=number],input[type=time],select{height:44px;padding:0 12px}
+textarea{padding:10px 12px;resize:vertical;min-height:72px;line-height:1.5}
+input:focus,select:focus,textarea:focus{border-color:var(--gm)}
+input[type=time]{font-family:'DM Mono',monospace;font-size:16px}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6a60' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.field{margin-bottom:12px}
+button{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:44px;padding:0 16px;border-radius:var(--rs);border:1.5px solid var(--bs);background:var(--sf);color:var(--tx);font-size:14px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:background .12s,transform .1s}
+button:active{transform:scale(.97)}
+.bp{background:var(--gd);color:#fff;border-color:var(--gd)}
+.bnow{height:44px;padding:0 12px;background:var(--gp);border-color:var(--gmu);color:var(--gd);font-size:13px;white-space:nowrap}
+.bdg{border-color:#fca5a5;color:var(--red);background:#fff5f5}
+.bsm{height:34px;padding:0 12px;font-size:13px}
+.bxs{height:28px;padding:0 8px;font-size:11px}
 /* Status */
-.status { border-radius: var(--radius); padding: 20px 16px; text-align: center; margin-bottom: 12px; border: 1.5px solid var(--border); }
-.status.ok    { background: var(--green-pale); border-color: var(--green-muted); }
-.status.late  { background: var(--amber-pale); border-color: #fcd34d; }
-.status.vlate { background: var(--red-pale);   border-color: #fca5a5; }
-.status.early { background: var(--blue-pale);  border-color: #93c5fd; }
-.status.none  { background: var(--surface); }
-.status-icon  { font-size: 32px; margin-bottom: 6px; }
-.status-title { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
-.status.ok    .status-title { color: var(--green-dark); }
-.status.late  .status-title { color: #92400e; }
-.status.vlate .status-title { color: var(--red); }
-.status.early .status-title { color: var(--blue); }
-.status.none  .status-title { color: var(--text-muted); }
-.status-sub { font-size: 14px; }
-.status.ok    .status-sub { color: var(--green-mid); }
-.status.late  .status-sub { color: #92400e; }
-.status.vlate .status-sub { color: var(--red); }
-.status.early .status-sub { color: var(--blue); }
-.status.none  .status-sub { color: var(--text-hint); }
-/* Info cards row */
-.info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-.info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; }
-.info-card-label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 4px; }
-.info-card-value { font-size: 20px; font-weight: 600; font-family: 'DM Mono', monospace; color: var(--text); }
-.info-card-value.green { color: var(--green-dark); }
-.info-card-value.amber { color: #92400e; }
-.info-card-value.red   { color: var(--red); }
-.info-card-value.blue  { color: var(--blue); }
-/* Stopwatch */
-.chrono-display { font-family: 'DM Mono', monospace; font-size: 36px; font-weight: 600; text-align: center; color: var(--text); letter-spacing: 2px; padding: 10px 0 4px; }
-.chrono-display.running { color: var(--green-dark); }
-.chrono-display.stopped { color: var(--text-muted); }
-.chrono-label { text-align: center; font-size: 12px; color: var(--text-hint); margin-bottom: 12px; }
-.chrono-btns { display: flex; gap: 8px; }
-.chrono-btns button { flex: 1; }
-.btn-start { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
-.btn-stop  { background: var(--red-pale); color: var(--red); border-color: #fca5a5; }
-.btn-reset { background: var(--bg); color: var(--text-muted); border-color: var(--border-strong); }
-.lap-list { margin-top: 10px; max-height: 140px; overflow-y: auto; }
-.lap-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-.lap-item:last-child { border-bottom: none; }
-.lap-num { color: var(--text-muted); font-size: 12px; }
-.lap-time { font-family: 'DM Mono', monospace; font-weight: 500; }
+.status{border-radius:var(--r);padding:20px 16px;text-align:center;margin-bottom:12px;border:1.5px solid var(--bo)}
+.status.ok{background:var(--gp);border-color:var(--gmu)}
+.status.late{background:var(--ap);border-color:#fcd34d}
+.status.vlate{background:var(--rp);border-color:#fca5a5}
+.status.early{background:var(--bp);border-color:#93c5fd}
+.status.none{background:var(--sf)}
+.sico{font-size:32px;margin-bottom:6px}
+.sti{font-size:22px;font-weight:600;margin-bottom:4px}
+.ssu{font-size:14px}
+.status.ok .sti{color:var(--gd)}.status.ok .ssu{color:var(--gm)}
+.status.late .sti,.status.late .ssu{color:#92400e}
+.status.vlate .sti,.status.vlate .ssu{color:var(--red)}
+.status.early .sti{color:var(--bl)}.status.early .ssu{color:var(--bl)}
+.status.none .sti,.status.none .ssu{color:var(--th)}
+/* Info cards */
+.icards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.icard{background:var(--sf);border:1px solid var(--bo);border-radius:var(--r);padding:12px 14px}
+.iclbl{font-size:11px;font-weight:600;color:var(--tm);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+.icval{font-size:20px;font-weight:600;font-family:'DM Mono',monospace;color:var(--tx)}
+.icval.g{color:var(--gd)}.icval.a{color:#92400e}.icval.r{color:var(--red)}.icval.b{color:var(--bl)}
 /* Table */
-.tbl-wrap { overflow-x: auto; margin-top: 4px; }
-table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
-th { color: var(--text-muted); font-weight: 500; text-align: left; padding: 5px; border-bottom: 1px solid var(--border); font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; }
-td { padding: 5px; color: var(--text); border-bottom: 1px solid var(--border); }
-tr:last-child td { border-bottom: none; }
-tr.active-row td { background: var(--green-pale); color: var(--green-dark); font-weight: 600; }
-tr.turn-row td { background: #fef9c3; color: #713f12; font-style: italic; }
-.td-dim { color: var(--text-hint); font-size: 11px; }
+.tw{overflow-x:auto;margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
+th{color:var(--tm);font-weight:500;text-align:left;padding:5px;border-bottom:1px solid var(--bo);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
+td{padding:5px;color:var(--tx);border-bottom:1px solid var(--bo)}
+tr:last-child td{border-bottom:none}
+tr.ar td{background:var(--gp);color:var(--gd);font-weight:600}
+tr.tr td{background:#fef9c3;color:#713f12;font-style:italic}
+.tdm{color:var(--th);font-size:11px}
 /* Course list */
-.course-item { padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
-.course-item:last-child { border-bottom: none; }
-.course-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; }
-.course-info { flex: 1; min-width: 0; }
-.course-name { font-weight: 500; font-size: 14px; }
-.course-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.ci2{padding:12px 0;border-bottom:1px solid var(--bo);display:flex;align-items:center;gap:10px}
+.ci2:last-child{border-bottom:none}
+.cdot{width:10px;height:10px;border-radius:50%;background:var(--gl);flex-shrink:0}
+.cnfo{flex:1;min-width:0}
+.cname{font-weight:500;font-size:14px}
+.cmeta{font-size:12px;color:var(--tm);margin-top:2px}
 /* Hole form */
-.hole-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; margin-bottom: 10px; }
-.hole-box { background: var(--bg); border-radius: var(--radius-sm); padding: 8px 10px; border: 1px solid var(--border); }
-.hole-label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 5px; }
-.hole-inputs { display: flex; gap: 5px; }
-.hole-inputs input { height: 36px; font-size: 14px; padding: 0 8px; }
-.hole-inputs input:first-child { width: 44%; }
-.hole-inputs input:last-child  { width: 56%; }
-.hole-hint { font-size: 10px; color: var(--text-hint); margin-top: 3px; }
-.section-header { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 8px; }
-.empty { text-align: center; padding: 32px 16px; color: var(--text-muted); font-size: 14px; }
-.empty-icon { font-size: 36px; margin-bottom: 8px; }
-.chip { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 20px; background: var(--green-pale); color: var(--green-dark); border: 1px solid var(--green-muted); margin-right: 4px; margin-bottom: 4px; }
-.info-note { font-size: 12px; color: var(--text-muted); background: var(--bg); border-radius: var(--radius-sm); padding: 8px 10px; margin-top: 10px; border-left: 3px solid var(--green-muted); }
-.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--green-dark); color: #fff; padding: 10px 20px; border-radius: 24px; font-size: 14px; font-weight: 500; transition: transform .3s cubic-bezier(.34,1.56,.64,1); z-index: 100; white-space: nowrap; pointer-events: none; }
-.toast.show { transform: translateX(-50%) translateY(0); }
-.divider { height: 1px; background: var(--border); margin: 12px 0; }
+.hgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.hbox{background:var(--bg);border-radius:var(--rs);padding:8px 10px;border:1px solid var(--bo)}
+.hlbl{font-size:11px;font-weight:600;color:var(--tm);text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px}
+.hinp{display:flex;gap:5px}
+.hinp input{height:36px;font-size:14px;padding:0 8px}
+.hinp input:first-child{width:44%}
+.hinp input:last-child{width:56%}
+.hh{font-size:10px;color:var(--th);margin-top:3px}
+.sh{font-size:11px;font-weight:600;color:var(--tm);text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px}
+.empty{text-align:center;padding:32px 16px;color:var(--tm);font-size:14px}
+.eico{font-size:36px;margin-bottom:8px}
+.chip{display:inline-block;font-size:11px;padding:3px 10px;border-radius:20px;background:var(--gp);color:var(--gd);border:1px solid var(--gmu);margin-right:4px;margin-bottom:4px}
+.inote{font-size:12px;color:var(--tm);background:var(--bg);border-radius:var(--rs);padding:8px 10px;margin-top:10px;border-left:3px solid var(--gmu)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gd);color:#fff;padding:10px 20px;border-radius:24px;font-size:14px;font-weight:500;transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:100;white-space:nowrap;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.div{height:1px;background:var(--bo);margin:12px 0}
+
+/* ── Groupes chrono ── */
+.gc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.gc-title{font-size:15px;font-weight:600}
+.gc-card{background:var(--sf);border:1px solid var(--bo);border-radius:var(--r);padding:14px;margin-bottom:10px}
+.gc-card.active-gc{border-color:var(--gm);border-width:2px}
+.gc-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.gc-num{width:32px;height:32px;border-radius:50%;background:var(--gp);color:var(--gd);font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gc-name{font-weight:500;font-size:14px;flex:1}
+.gc-time{font-family:'DM Mono',monospace;font-size:22px;font-weight:600;color:var(--tx)}
+.gc-time.running{color:var(--gd)}
+.gc-time.stopped{color:var(--tm)}
+.gc-meta{font-size:12px;color:var(--tm);margin-top:2px}
+.gc-btns{display:flex;gap:6px;margin-bottom:10px}
+.gc-btns button{flex:1;height:38px;font-size:13px}
+.bstart{background:var(--gd);color:#fff;border-color:var(--gd)}
+.bstop{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+.blap{background:var(--bp);color:var(--bl);border-color:#93c5fd}
+.gc-laps{margin-bottom:8px}
+.lap-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--bo);font-size:12px}
+.lap-row:last-child{border-bottom:none}
+.lr-hole{color:var(--tm)}
+.lr-time{font-family:'DM Mono',monospace;font-weight:500}
+.lr-avg-good{color:var(--gd)}
+.lr-avg-bad{color:#92400e}
+.lr-avg-ugly{color:var(--red)}
+.gc-comment{width:100%;border:1.5px solid var(--bo);border-radius:var(--rs);font-size:13px;font-family:'DM Sans',sans-serif;color:var(--tx);background:var(--bg);outline:none;padding:8px 10px;resize:none;min-height:52px;line-height:1.5;transition:border-color .15s}
+.gc-comment:focus{border-color:var(--gm)}
+.gc-comment::placeholder{color:var(--th)}
+.gc-summary{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.gc-badge{font-size:11px;padding:3px 10px;border-radius:12px;background:var(--gp);color:var(--gd);border:1px solid var(--gmu)}
+.gc-badge.warn{background:var(--ap);color:#92400e;border-color:#fcd34d}
+.gc-badge.bad{background:var(--rp);color:var(--red);border-color:#fca5a5}
+.add-group-btn{width:100%;height:44px;border:1.5px dashed var(--bs);background:none;color:var(--tm);font-size:14px;border-radius:var(--r);cursor:pointer;font-family:'DM Sans',sans-serif}
+.add-group-btn:hover{background:var(--gp);color:var(--gd);border-color:var(--gmu)}
 </style>
 </head>
 <body>
 
 <div class="header">
   <div>
-    <div class="header-title">Marshal Golf</div>
-    <div class="header-sub" id="header-course">Sélectionnez un parcours</div>
+    <div class="htitle">Marshal Golf</div>
+    <div class="hsub" id="hcourse">Sélectionnez un parcours</div>
   </div>
-  <div class="flag-icon">⛳</div>
+  <div class="hicon">⛳</div>
 </div>
 
 <div class="nav">
-  <button class="nav-tab active" id="tab-suivi"    onclick="showTab('suivi')">Suivi</button>
-  <button class="nav-tab"        id="tab-chrono"   onclick="showTab('chrono')">Chrono</button>
-  <button class="nav-tab"        id="tab-parcours" onclick="showTab('parcours')">Parcours</button>
-  <button class="nav-tab"        id="tab-nouveau"  onclick="showNewForm()">+ Nouveau</button>
+  <button class="nt active" id="tab-suivi"    onclick="showTab('suivi')">Suivi</button>
+  <button class="nt"        id="tab-groupes"  onclick="showTab('groupes')">Groupes</button>
+  <button class="nt"        id="tab-parcours" onclick="showTab('parcours')">Parcours</button>
+  <button class="nt"        id="tab-nouveau"  onclick="showNewForm()">+ Nouveau</button>
 </div>
 
-<!-- ═══════════════ SUIVI ═══════════════ -->
+<!-- ══════════ SUIVI ══════════ -->
 <div id="view-suivi" class="content">
   <div class="card">
-    <div class="card-title"><div class="card-title-icon">🏌️</div>Informations du groupe</div>
+    <div class="ct"><div class="ci">🏌️</div>Informations du groupe</div>
     <div class="field">
       <label>Parcours</label>
       <select id="sel-cours" onchange="onCourseChange()"></select>
     </div>
-    <div class="row2 field">
+    <div class="r2 field">
       <div><label>Départ prévu</label><input type="time" id="tee-scheduled" step="60" oninput="calc()"/></div>
       <div><label>Départ réel</label><input type="time" id="tee-actual" step="60" oninput="calc()"/></div>
     </div>
-    <div class="row2 field" style="margin-bottom:0">
+    <div class="r2 field" style="margin-bottom:0">
       <div>
         <label>Trou actuel</label>
         <select id="hole" onchange="calc()"><option value="">— Trou —</option></select>
@@ -176,44 +180,33 @@ tr.turn-row td { background: #fef9c3; color: #713f12; font-style: italic; }
         <label>Heure observée</label>
         <div style="display:flex;gap:6px">
           <input type="time" id="now" step="60" oninput="calc()" style="flex:1"/>
-          <button class="btn-now" onclick="setNow()">Maint.</button>
+          <button class="bnow" onclick="setNow()">Maint.</button>
         </div>
       </div>
     </div>
-    <div class="info-note" id="delay-note" style="display:none"></div>
+    <div class="inote" id="delay-note" style="display:none"></div>
   </div>
 
-  <!-- Statut -->
   <div class="status none" id="sc">
-    <div class="status-icon" id="si">🕐</div>
-    <div class="status-title" id="st">En attente</div>
-    <div class="status-sub"   id="ss">Sélectionnez un parcours et entrez les données</div>
+    <div class="sico" id="si">🕐</div>
+    <div class="sti"  id="st">En attente</div>
+    <div class="ssu"  id="ss">Sélectionnez un parcours et entrez les données</div>
   </div>
 
-  <!-- Cartes info : heure de fin + écart -->
-  <div class="info-cards" id="info-cards" style="display:none">
-    <div class="info-card">
-      <div class="info-card-label">Fin prévue</div>
-      <div class="info-card-value green" id="ic-fin">—</div>
-    </div>
-    <div class="info-card">
-      <div class="info-card-label">Écart total</div>
-      <div class="info-card-value" id="ic-ecart">—</div>
-    </div>
+  <div class="icards" id="icards" style="display:none">
+    <div class="icard"><div class="iclbl">Fin prévue</div><div class="icval g" id="ic-fin">—</div></div>
+    <div class="icard"><div class="iclbl">Écart total</div><div class="icval" id="ic-ecart">—</div></div>
   </div>
 
-  <!-- Tableau -->
   <div id="table-card" style="display:none">
     <div class="card">
-      <div class="card-title"><div class="card-title-icon">📋</div><span id="table-title">Tableau des temps</span></div>
+      <div class="ct"><div class="ci">📋</div><span id="table-title">Tableau des temps</span></div>
       <div style="margin-bottom:10px" id="chips-wrap"></div>
-      <div class="tbl-wrap">
+      <div class="tw">
         <table>
           <thead><tr>
-            <th style="width:16%">Trou</th>
-            <th style="width:10%">Par</th>
-            <th style="width:24%">Début prévu</th>
-            <th style="width:24%">Début réel</th>
+            <th style="width:16%">Trou</th><th style="width:10%">Par</th>
+            <th style="width:24%">Début prévu</th><th style="width:24%">Début réel</th>
             <th style="width:26%">Alloué</th>
           </tr></thead>
           <tbody id="tb"></tbody>
@@ -223,73 +216,55 @@ tr.turn-row td { background: #fef9c3; color: #713f12; font-style: italic; }
   </div>
 </div>
 
-<!-- ═══════════════ CHRONOMÈTRE ═══════════════ -->
-<div id="view-chrono" class="content" style="display:none">
-  <div class="card">
-    <div class="card-title"><div class="card-title-icon">⏱</div>Chronomètre de trou</div>
-    <div class="chrono-display stopped" id="chrono-display">00:00</div>
-    <div class="chrono-label" id="chrono-label">Arrêté</div>
-    <div class="chrono-btns">
-      <button class="btn-start" id="chrono-start-btn" onclick="chronoStart()">Démarrer</button>
-      <button class="btn-stop"  id="chrono-lap-btn"   onclick="chronoLap()" style="display:none">Enregistrer</button>
-      <button class="btn-reset"                        onclick="chronoReset()">Réinit.</button>
-    </div>
-    <div id="lap-section" style="display:none">
-      <div class="divider"></div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <span style="font-size:13px;font-weight:500;color:var(--text-muted)">Temps par trou</span>
-        <button class="btn-sm" onclick="clearLaps()" style="font-size:11px;height:28px;padding:0 8px">Effacer</button>
-      </div>
-      <div class="lap-list" id="lap-list"></div>
-    </div>
+<!-- ══════════ GROUPES (chrono multi) ══════════ -->
+<div id="view-groupes" class="content" style="display:none">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+    <div style="font-size:15px;font-weight:600">Suivi des groupes</div>
+    <button class="bsm bdg" onclick="clearAllGroups()">Tout effacer</button>
   </div>
-
-  <div class="card">
-    <div class="card-title"><div class="card-title-icon">📊</div>Statistiques</div>
-    <div class="row2">
-      <div>
-        <div style="font-size:12px;color:var(--text-muted);margin-bottom:3px">Temps moyen</div>
-        <div style="font-size:20px;font-weight:600;font-family:'DM Mono',monospace" id="stat-avg">—</div>
-      </div>
-      <div>
-        <div style="font-size:12px;color:var(--text-muted);margin-bottom:3px">Nombre de trous</div>
-        <div style="font-size:20px;font-weight:600;font-family:'DM Mono',monospace" id="stat-count">0</div>
-      </div>
-    </div>
-  </div>
+  <div id="groups-container"></div>
+  <button class="add-group-btn" onclick="addGroup()">+ Ajouter un groupe</button>
 </div>
 
-<!-- ═══════════════ PARCOURS ═══════════════ -->
+<!-- ══════════ PARCOURS ══════════ -->
 <div id="view-parcours" class="content" style="display:none">
   <div class="card">
-    <div class="card-title"><div class="card-title-icon">📍</div>Mes parcours</div>
+    <div class="ct"><div class="ci">📍</div>Mes parcours</div>
     <div id="course-list"></div>
+  </div>
+
+  <div class="card">
+    <div class="ct"><div class="ci">💾</div>Sauvegarde des parcours</div>
+    <p style="font-size:13px;color:var(--tm);margin-bottom:14px">Exportez vos parcours pour les sauvegarder ou les transférer sur un autre appareil.</p>
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <button class="bp" onclick="exportCourses()" style="flex:1">⬇ Exporter</button>
+      <button onclick="document.getElementById('import-input').click()" style="flex:1">⬆ Importer</button>
+    </div>
+    <input type="file" id="import-input" accept=".json" style="display:none" onchange="importCourses(event)"/>
+    <p style="font-size:11px;color:var(--th);text-align:center">Le fichier exporté se nomme <strong>marshal-parcours.json</strong><br>Gardez-le dans vos Fichiers sur iPhone.</p>
   </div>
 </div>
 
-<!-- ═══════════════ NOUVEAU / MODIFIER ═══════════════ -->
+<!-- ══════════ NOUVEAU / MODIFIER ══════════ -->
 <div id="view-nouveau" class="content" style="display:none">
   <div class="card">
-    <div class="card-title" id="form-card-title"><div class="card-title-icon">✏️</div>Nouveau parcours</div>
-    <div class="field">
-      <label>Nom du parcours</label>
-      <input type="text" id="f-name" placeholder="Ex: Club de golf de Farnham"/>
-    </div>
-    <div class="row3 field">
+    <div class="ct" id="form-card-title"><div class="ci">✏️</div>Nouveau parcours</div>
+    <div class="field"><label>Nom du parcours</label><input type="text" id="f-name" placeholder="Ex: Club de golf de Farnham"/></div>
+    <div class="r3 field">
       <div><label>Espace groupes (min)</label><input type="number" id="f-spacing" value="8" min="1" max="30"/></div>
       <div><label>Tolérance ±(min)</label><input type="number" id="f-tol" value="5" min="1" max="15"/></div>
       <div><label>Pause cantine (min)</label><input type="number" id="f-turn" value="0" min="0" max="30"/></div>
     </div>
-    <p style="font-size:12px;color:var(--text-muted);margin:-6px 0 14px">La pause cantine est le temps ajouté entre le trou 9 et le trou 10.</p>
-    <div class="section-header">Temps par trou — Par / Minutes</div>
-    <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px">Par 3 = 12 min, Par 4 = 15 min, Par 5 = 18 min par défaut.</p>
-    <div class="section-header">Aller (trous 1–9)</div>
-    <div class="hole-grid" id="hole-inputs-front"></div>
-    <div class="section-header">Retour (trous 10–18)</div>
-    <div class="hole-grid" id="hole-inputs-back"></div>
+    <p style="font-size:12px;color:var(--tm);margin:-6px 0 14px">La pause cantine est ajoutée entre le trou 9 et le trou 10.</p>
+    <div class="sh">Temps par trou — Par / Minutes</div>
+    <p style="font-size:12px;color:var(--tm);margin-bottom:12px">Par 3 = 12 min, Par 4 = 15 min, Par 5 = 18 min par défaut.</p>
+    <div class="sh">Aller (trous 1–9)</div>
+    <div class="hgrid" id="hole-inputs-front"></div>
+    <div class="sh">Retour (trous 10–18)</div>
+    <div class="hgrid" id="hole-inputs-back"></div>
     <div style="display:flex;gap:8px;margin-top:8px">
       <button onclick="cancelForm()" style="flex:1">Annuler</button>
-      <button class="btn-primary" onclick="saveCourse()" style="flex:2">Enregistrer</button>
+      <button class="bp" onclick="saveCourse()" style="flex:2">Enregistrer</button>
     </div>
   </div>
 </div>
@@ -297,47 +272,57 @@ tr.turn-row td { background: #fef9c3; color: #713f12; font-style: italic; }
 <div class="toast" id="toast"></div>
 
 <script>
-const KEY = 'marshal_v4';
+const KEY = 'marshal_v5';
 let courses = [];
 let editIdx = -1;
 
-// ── Chrono state ──
-let chronoInterval = null;
-let chronoStartTs  = null;
-let chronoElapsed  = 0;
-let chronoRunning  = false;
-let laps = [];
+/* ─────────────────────────────────────────
+   GROUPES — structure
+   Chaque groupe : { id, name, running, startTs, elapsed, laps[], comment, color }
+───────────────────────────────────────── */
+let groups = [];
+let groupIntervals = {};
+const GROUP_COLORS = ['#1a4a2e','#1d4ed8','#92400e','#7c3aed','#be185d','#0f766e'];
 
 function loadData() {
-  try { const d = localStorage.getItem(KEY); if (d) courses = JSON.parse(d); } catch(e) {}
+  try {
+    const d = localStorage.getItem(KEY);
+    if (d) { const p = JSON.parse(d); courses = p.courses || []; groups = p.groups || []; }
+  } catch(e) {}
   if (!courses.length) {
-    courses = [{
-      name: 'Farnham 2026', spacing: 8, tol: 5, turn: 10,
-      par:  [4,5,3,5,4,3,4,4,4,5,3,4,3,4,5,4,3,4],
-      mins: [15,18,12,18,15,12,15,15,15,18,12,15,12,15,18,15,12,15]
-    }];
-    saveData();
+    courses = [{name:'Farnham 2026',spacing:8,tol:5,turn:10,
+      par:[4,5,3,5,4,3,4,4,4,5,3,4,3,4,5,4,3,4],
+      mins:[15,18,12,18,15,12,15,15,15,18,12,15,12,15,18,15,12,15]}];
   }
+  // Arrête les chronos qui étaient en cours (après rechargement)
+  groups.forEach(g => { g.running = false; });
+  saveData();
 }
-function saveData() { try { localStorage.setItem(KEY, JSON.stringify(courses)); } catch(e) {} }
 
+function saveData() {
+  try { localStorage.setItem(KEY, JSON.stringify({courses, groups})); } catch(e) {}
+}
+
+/* ─── Navigation ─── */
 function showTab(t) {
-  ['suivi','chrono','parcours','nouveau'].forEach(v => {
-    document.getElementById('view-'+v).style.display = v===t ? '' : 'none';
+  ['suivi','groupes','parcours','nouveau'].forEach(v => {
+    document.getElementById('view-'+v).style.display = v===t?'':'none';
     const tab = document.getElementById('tab-'+v);
     if (tab) tab.classList.toggle('active', v===t);
   });
   if (t==='parcours') renderCourseList();
   if (t==='suivi')    { populateCourseSelect(); calc(); }
+  if (t==='groupes')  renderGroups();
 }
 
+/* ─── Suivi ─── */
 function populateCourseSelect() {
   const sel = document.getElementById('sel-cours');
   const prev = sel.value;
-  sel.innerHTML = courses.length === 0
+  sel.innerHTML = courses.length===0
     ? '<option value="">— Aucun parcours —</option>'
-    : courses.map((c,i) => `<option value="${i}">${c.name}</option>`).join('');
-  if (prev !== '' && sel.querySelector(`option[value="${prev}"]`)) sel.value = prev;
+    : courses.map((c,i)=>`<option value="${i}">${c.name}</option>`).join('');
+  if (prev!=='' && sel.querySelector(`option[value="${prev}"]`)) sel.value = prev;
   onCourseChange();
 }
 
@@ -345,350 +330,325 @@ function onCourseChange() {
   const idx = parseInt(document.getElementById('sel-cours').value);
   const hSel = document.getElementById('hole');
   hSel.innerHTML = '<option value="">— Trou —</option>';
-  if (isNaN(idx) || !courses[idx]) {
-    document.getElementById('table-card').style.display = 'none';
-    document.getElementById('info-cards').style.display = 'none';
-    document.getElementById('header-course').textContent = 'Sélectionnez un parcours';
+  if (isNaN(idx)||!courses[idx]) {
+    document.getElementById('table-card').style.display='none';
+    document.getElementById('icards').style.display='none';
+    document.getElementById('hcourse').textContent='Sélectionnez un parcours';
     return;
   }
-  document.getElementById('header-course').textContent = courses[idx].name;
-  for (let i = 1; i <= 18; i++) {
-    const o = document.createElement('option');
-    o.value = i; o.textContent = 'Trou ' + i;
-    hSel.appendChild(o);
-  }
+  document.getElementById('hcourse').textContent = courses[idx].name;
+  for (let i=1;i<=18;i++) { const o=document.createElement('option'); o.value=i; o.textContent='Trou '+i; hSel.appendChild(o); }
   calc();
 }
 
-function toMin(s) {
-  if (!s) return null;
-  const [h,m] = s.split(':').map(Number);
-  return h * 60 + m;
-}
-function fmtT(m) {
-  if (m == null) return '—';
-  const h = Math.floor(m / 60) % 24, mn = m % 60;
-  return String(h).padStart(2,'0') + ':' + String(mn).padStart(2,'0');
-}
+function toMin(s) { if(!s)return null; const[h,m]=s.split(':').map(Number); return h*60+m; }
+function fmtT(m) { if(m==null)return'—'; const h=Math.floor(m/60)%24,mn=m%60; return String(h).padStart(2,'0')+':'+String(mn).padStart(2,'0'); }
 
-// Calcule les heures de début de chaque trou
-// Après le trou 9, on ajoute le temps de pause cantine (turn)
 function holeStartTimes(c, start) {
-  const turn = c.turn || 0;
-  const starts = [];
-  let t = start;
-  for (let i = 0; i < 18; i++) {
-    starts.push(t);
-    t += c.mins[i];
-    if (i === 8 && turn > 0) t += turn; // pause après trou 9
-  }
+  const turn=c.turn||0; const starts=[]; let t=start;
+  for(let i=0;i<18;i++) { starts.push(t); t+=c.mins[i]; if(i===8&&turn>0)t+=turn; }
   return starts;
 }
 
 function calc() {
-  const cidx          = parseInt(document.getElementById('sel-cours').value);
-  const teeScheduled  = toMin(document.getElementById('tee-scheduled').value);
-  const teeActual     = toMin(document.getElementById('tee-actual').value);
-  const now           = toMin(document.getElementById('now').value);
-  const hole          = parseInt(document.getElementById('hole').value);
-  const c             = courses[cidx];
-
-  if (!c) {
-    setStatus('none','🕐','En attente','Sélectionnez un parcours');
-    document.getElementById('table-card').style.display  = 'none';
-    document.getElementById('info-cards').style.display  = 'none';
-    return;
-  }
-
-  const effectiveStart = teeActual != null ? teeActual : teeScheduled;
-
-  // Note départ
-  const note = document.getElementById('delay-note');
-  if (teeScheduled != null && teeActual != null) {
-    const d = teeActual - teeScheduled;
-    note.style.display = '';
-    if      (d > 0) note.textContent = 'Départ en retard de '  + d            + ' min (' + fmtT(teeScheduled) + ' prévu → ' + fmtT(teeActual) + ' réel)';
-    else if (d < 0) note.textContent = 'Départ en avance de '  + Math.abs(d)  + ' min (' + fmtT(teeScheduled) + ' prévu → ' + fmtT(teeActual) + ' réel)';
-    else            note.textContent = 'Départ à l\'heure (' + fmtT(teeScheduled) + ')';
-  } else { note.style.display = 'none'; }
-
-  buildTable(c, teeScheduled, effectiveStart, hole);
-  document.getElementById('table-card').style.display = '';
-  document.getElementById('table-title').textContent  = c.name;
-
-  const par = c.par.reduce((a,b)=>a+b,0);
-  const tot = c.mins.reduce((a,b)=>a+b,0) + (c.turn||0);
-  const th  = Math.floor(tot/60), tm = tot%60;
-  const turnChip = (c.turn||0) > 0 ? `<span class="chip">Cantine ${c.turn} min</span>` : '';
-  document.getElementById('chips-wrap').innerHTML =
-    `<span class="chip">Par ${par}</span><span class="chip">${th}h${String(tm).padStart(2,'0')} total</span><span class="chip">Espace ${c.spacing} min</span><span class="chip">Tol. ±${c.tol} min</span>${turnChip}`;
-
-  if (!effectiveStart || !now || !hole) {
-    setStatus('none','🕐','En attente','Entrez l\'heure de départ et le trou');
-    document.getElementById('info-cards').style.display = 'none';
-    return;
-  }
-
-  const starts = holeStartTimes(c, effectiveStart);
-  const scheduledStarts = teeScheduled ? holeStartTimes(c, teeScheduled) : null;
-
-  // Heure de fin prévue (fin du trou 18)
-  const finMin = starts[17] + c.mins[17];
-  document.getElementById('ic-fin').textContent = fmtT(finMin);
-
-  // Statut
-  const expectedStart = starts[hole - 1];
-  const diff = now - expectedStart;
-  const abs  = Math.abs(diff);
-  const sign = diff > 0 ? '+' : '−';
-  const tol  = c.tol || 5;
-
-  // Écart total
-  const ecartEl = document.getElementById('ic-ecart');
-  if (abs === 0) { ecartEl.textContent = 'À l\'heure'; ecartEl.className = 'info-card-value green'; }
-  else {
-    ecartEl.textContent = sign + abs + ' min';
-    ecartEl.className   = 'info-card-value ' + (diff > 0 ? (diff > 15 ? 'red' : 'amber') : 'blue');
-  }
-  document.getElementById('info-cards').style.display = '';
-
-  if      (abs <= tol)     setStatus('ok',    '✓', 'À l\'heure',       'Écart de ' + sign + abs + ' min au trou ' + hole);
-  else if (diff > 15)      setStatus('vlate', '⚠', 'Très en retard !', 'Retard de ' + abs + ' min au trou ' + hole);
-  else if (diff > tol)     setStatus('late',  '↓', 'En retard',        'Retard de ' + abs + ' min au trou ' + hole);
-  else                     setStatus('early', '↑', 'En avance',        'Avance de ' + abs + ' min au trou ' + hole);
+  const cidx=parseInt(document.getElementById('sel-cours').value);
+  const teeS=toMin(document.getElementById('tee-scheduled').value);
+  const teeA=toMin(document.getElementById('tee-actual').value);
+  const now=toMin(document.getElementById('now').value);
+  const hole=parseInt(document.getElementById('hole').value);
+  const c=courses[cidx];
+  if(!c){setStatus('none','🕐','En attente','Sélectionnez un parcours');document.getElementById('table-card').style.display='none';document.getElementById('icards').style.display='none';return;}
+  const eff=teeA!=null?teeA:teeS;
+  const note=document.getElementById('delay-note');
+  if(teeS!=null&&teeA!=null){const d=teeA-teeS;note.style.display='';note.textContent=d>0?'Départ en retard de '+d+' min ('+fmtT(teeS)+' prévu → '+fmtT(teeA)+' réel)':d<0?'Départ en avance de '+Math.abs(d)+' min ('+fmtT(teeS)+' prévu → '+fmtT(teeA)+' réel)':'Départ à l\'heure ('+fmtT(teeS)+')';}else{note.style.display='none';}
+  buildTable(c,teeS,eff,hole);
+  document.getElementById('table-card').style.display='';
+  document.getElementById('table-title').textContent=c.name;
+  const par=c.par.reduce((a,b)=>a+b,0),tot=c.mins.reduce((a,b)=>a+b,0)+(c.turn||0);
+  const th=Math.floor(tot/60),tm=tot%60;
+  const tc=(c.turn||0)>0?`<span class="chip">Cantine ${c.turn} min</span>`:'';
+  document.getElementById('chips-wrap').innerHTML=`<span class="chip">Par ${par}</span><span class="chip">${th}h${String(tm).padStart(2,'0')} total</span><span class="chip">Espace ${c.spacing} min</span><span class="chip">Tol. ±${c.tol} min</span>${tc}`;
+  if(!eff||!now||!hole){setStatus('none','🕐','En attente','Entrez l\'heure de départ et le trou');document.getElementById('icards').style.display='none';return;}
+  const starts=holeStartTimes(c,eff);
+  const finMin=starts[17]+c.mins[17];
+  document.getElementById('ic-fin').textContent=fmtT(finMin);
+  const exp=starts[hole-1],diff=now-exp,abs=Math.abs(diff),sign=diff>0?'+':'−',tol=c.tol||5;
+  const eEl=document.getElementById('ic-ecart');
+  eEl.textContent=abs===0?'À l\'heure':sign+abs+' min';
+  eEl.className='icval '+(abs===0?'g':diff>0?(diff>15?'r':'a'):'b');
+  document.getElementById('icards').style.display='';
+  if(abs<=tol)setStatus('ok','✓','À l\'heure','Écart de '+sign+abs+' min au trou '+hole);
+  else if(diff>15)setStatus('vlate','⚠','Très en retard !','Retard de '+abs+' min au trou '+hole);
+  else if(diff>tol)setStatus('late','↓','En retard','Retard de '+abs+' min au trou '+hole);
+  else setStatus('early','↑','En avance','Avance de '+abs+' min au trou '+hole);
 }
 
-function buildTable(c, scheduledStart, actualStart, currentHole) {
-  const turn            = c.turn || 0;
-  const scheduledStarts = scheduledStart ? holeStartTimes(c, scheduledStart) : null;
-  const actualStarts    = actualStart    ? holeStartTimes(c, actualStart)    : null;
-  let rows = '';
-
-  for (let i = 0; i < 18; i++) {
-    const sched  = scheduledStarts ? fmtT(scheduledStarts[i]) : '—';
-    const actual = actualStarts    ? fmtT(actualStarts[i])    : '—';
-    rows += `<tr id="r${i+1}"><td>Trou ${i+1}</td><td>${c.par[i]}</td><td>${sched}</td><td>${actual}</td><td class="td-dim">+${c.mins[i]} min</td></tr>`;
-
-    // Ligne pause cantine après trou 9
-    if (i === 8 && turn > 0) {
-      const cantSched  = scheduledStarts ? fmtT(scheduledStarts[i] + c.mins[i]) : '—';
-      const cantActual = actualStarts    ? fmtT(actualStarts[i]    + c.mins[i]) : '—';
-      rows += `<tr class="turn-row"><td colspan="1">🍔 Cantine</td><td>—</td><td>${cantSched}</td><td>${cantActual}</td><td class="td-dim">+${turn} min</td></tr>`;
-    }
+function buildTable(c,scheduledStart,actualStart,currentHole) {
+  const turn=c.turn||0;
+  const ss=scheduledStart?holeStartTimes(c,scheduledStart):null;
+  const as=actualStart?holeStartTimes(c,actualStart):null;
+  let rows='';
+  for(let i=0;i<18;i++){
+    const sc=ss?fmtT(ss[i]):'—',ac=as?fmtT(as[i]):'—';
+    rows+=`<tr id="r${i+1}"><td>Trou ${i+1}</td><td>${c.par[i]}</td><td>${sc}</td><td>${ac}</td><td class="tdm">+${c.mins[i]} min</td></tr>`;
+    if(i===8&&turn>0){const cs=ss?fmtT(ss[i]+c.mins[i]):'—',ca=as?fmtT(as[i]+c.mins[i]):'—';rows+=`<tr class="tr"><td>🍔 Cantine</td><td>—</td><td>${cs}</td><td>${ca}</td><td class="tdm">+${turn} min</td></tr>`;}
   }
-
-  document.getElementById('tb').innerHTML = rows;
-  document.querySelectorAll('#tb tr').forEach(r => r.classList.remove('active-row'));
-  if (currentHole) {
-    const row = document.getElementById('r' + currentHole);
-    if (row) { row.classList.add('active-row'); row.scrollIntoView({block:'nearest'}); }
-  }
+  document.getElementById('tb').innerHTML=rows;
+  document.querySelectorAll('#tb tr').forEach(r=>r.classList.remove('ar'));
+  if(currentHole){const row=document.getElementById('r'+currentHole);if(row){row.classList.add('ar');row.scrollIntoView({block:'nearest'});}}
 }
 
-function setStatus(cls, icon, title, sub) {
-  document.getElementById('sc').className    = 'status ' + cls;
-  document.getElementById('si').textContent  = icon;
-  document.getElementById('st').textContent  = title;
-  document.getElementById('ss').textContent  = sub;
+function setStatus(cls,icon,title,sub){document.getElementById('sc').className='status '+cls;document.getElementById('si').textContent=icon;document.getElementById('st').textContent=title;document.getElementById('ss').textContent=sub;}
+function setNow(){const n=new Date();document.getElementById('now').value=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');calc();}
+
+/* ─────────────────────────────────────────
+   GROUPES CHRONO
+───────────────────────────────────────── */
+let nextGroupId = 1;
+
+function addGroup() {
+  const id = nextGroupId++;
+  const num = groups.length + 1;
+  groups.push({id, name:'Groupe '+num, running:false, startTs:null, elapsed:0, laps:[], comment:'', color: GROUP_COLORS[(num-1) % GROUP_COLORS.length]});
+  saveData();
+  renderGroups();
 }
 
-function setNow() {
-  const n = new Date();
-  document.getElementById('now').value = String(n.getHours()).padStart(2,'0') + ':' + String(n.getMinutes()).padStart(2,'0');
-  calc();
-}
-
-// ══════════════════════════════════════════
-// CHRONOMÈTRE
-// ══════════════════════════════════════════
 function chronoFmt(ms) {
-  const total = Math.floor(ms / 1000);
-  const m     = Math.floor(total / 60);
-  const s     = total % 60;
-  return String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  const total=Math.floor(ms/1000),m=Math.floor(total/60),s=total%60;
+  return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
 }
 
-function chronoTick() {
-  const elapsed = chronoElapsed + (Date.now() - chronoStartTs);
-  document.getElementById('chrono-display').textContent = chronoFmt(elapsed);
+function groupStart(id) {
+  const g = groups.find(x=>x.id===id);
+  if (!g||g.running) return;
+  g.running=true; g.startTs=Date.now();
+  groupIntervals[id] = setInterval(()=>updateGroupDisplay(id), 200);
+  saveData(); renderGroups();
 }
 
-function chronoStart() {
-  if (chronoRunning) return;
-  chronoRunning  = true;
-  chronoStartTs  = Date.now();
-  chronoInterval = setInterval(chronoTick, 200);
-  document.getElementById('chrono-display').className = 'chrono-display running';
-  document.getElementById('chrono-label').textContent  = 'En cours...';
-  document.getElementById('chrono-start-btn').style.display = 'none';
-  document.getElementById('chrono-lap-btn').style.display   = '';
+function groupLap(id) {
+  const g = groups.find(x=>x.id===id);
+  if (!g||!g.running) return;
+  const elapsed = g.elapsed + (Date.now()-g.startTs);
+  g.laps.push(elapsed);
+  g.elapsed=0; g.startTs=Date.now();
+  saveData(); renderGroups();
+  showToast('Groupe '+g.name+' — Trou '+g.laps.length+' : '+chronoFmt(elapsed));
 }
 
-function chronoLap() {
-  if (!chronoRunning) return;
-  const elapsed = chronoElapsed + (Date.now() - chronoStartTs);
-  const lapNum  = laps.length + 1;
-  laps.push(elapsed);
-
-  // Réinitialise le compteur pour le prochain trou
-  clearInterval(chronoInterval);
-  chronoElapsed  = 0;
-  chronoStartTs  = Date.now();
-  chronoInterval = setInterval(chronoTick, 200);
-
-  renderLaps();
-  showToast('Trou ' + lapNum + ' : ' + chronoFmt(elapsed));
+function groupStop(id) {
+  const g = groups.find(x=>x.id===id);
+  if (!g) return;
+  if (g.running) {
+    clearInterval(groupIntervals[id]);
+    g.elapsed += Date.now()-g.startTs;
+    g.running=false; g.startTs=null;
+  }
+  saveData(); renderGroups();
 }
 
-function chronoReset() {
-  clearInterval(chronoInterval);
-  chronoRunning  = false;
-  chronoElapsed  = 0;
-  chronoStartTs  = null;
-  document.getElementById('chrono-display').textContent  = '00:00';
-  document.getElementById('chrono-display').className    = 'chrono-display stopped';
-  document.getElementById('chrono-label').textContent    = 'Arrêté';
-  document.getElementById('chrono-start-btn').style.display = '';
-  document.getElementById('chrono-lap-btn').style.display   = 'none';
+function groupReset(id) {
+  const g = groups.find(x=>x.id===id);
+  if (!g) return;
+  clearInterval(groupIntervals[id]);
+  g.running=false; g.startTs=null; g.elapsed=0; g.laps=[];
+  saveData(); renderGroups();
 }
 
-function clearLaps() {
-  laps = [];
-  renderLaps();
+function groupDelete(id) {
+  clearInterval(groupIntervals[id]);
+  groups = groups.filter(x=>x.id!==id);
+  saveData(); renderGroups();
 }
 
-function renderLaps() {
-  const list = document.getElementById('lap-list');
-  const sec  = document.getElementById('lap-section');
-  if (!laps.length) { sec.style.display = 'none'; return; }
-  sec.style.display = '';
-  list.innerHTML = laps.map((t,i) =>
-    `<div class="lap-item"><span class="lap-num">Trou ${i+1}</span><span class="lap-time">${chronoFmt(t)}</span></div>`
-  ).reverse().join('');
-
-  // Stats
-  const avg = laps.reduce((a,b)=>a+b,0) / laps.length;
-  document.getElementById('stat-avg').textContent   = chronoFmt(avg);
-  document.getElementById('stat-count').textContent = laps.length;
+function updateGroupDisplay(id) {
+  const g = groups.find(x=>x.id===id);
+  if (!g||!g.running) return;
+  const el=document.getElementById('gtime-'+id);
+  if(el) el.textContent = chronoFmt(g.elapsed+(Date.now()-g.startTs));
 }
 
-// ══════════════════════════════════════════
-// GESTION DES PARCOURS
-// ══════════════════════════════════════════
-function renderCourseList() {
-  const el = document.getElementById('course-list');
-  if (!courses.length) {
-    el.innerHTML = '<div class="empty"><div class="empty-icon">📭</div>Aucun parcours.<br>Ajoutez-en un avec "+ Nouveau".</div>';
+function updateGroupComment(id, val) {
+  const g = groups.find(x=>x.id===id);
+  if (g) { g.comment=val; saveData(); }
+}
+
+function updateGroupName(id, val) {
+  const g = groups.find(x=>x.id===id);
+  if (g) { g.name=val; saveData(); }
+}
+
+function clearAllGroups() {
+  if (!confirm('Effacer tous les groupes?')) return;
+  Object.values(groupIntervals).forEach(t=>clearInterval(t));
+  groupIntervals={};
+  groups=[];
+  saveData(); renderGroups();
+}
+
+function lapClass(ms, avgMs) {
+  if (!avgMs) return '';
+  const diff = ms - avgMs;
+  if (diff > 3*60*1000) return 'lr-avg-ugly';
+  if (diff > 1*60*1000) return 'lr-avg-bad';
+  return 'lr-avg-good';
+}
+
+function renderGroups() {
+  const container = document.getElementById('groups-container');
+  if (!groups.length) {
+    container.innerHTML = '<div class="empty"><div class="eico">🏌️</div>Aucun groupe.<br>Appuyez sur "+ Ajouter un groupe".</div>';
     return;
   }
-  el.innerHTML = courses.map((c,i) => {
-    const par  = c.par.reduce((a,b)=>a+b,0);
-    const tot  = c.mins.reduce((a,b)=>a+b,0) + (c.turn||0);
-    const th   = Math.floor(tot/60), tm = tot%60;
-    const turn = c.turn ? ` &bull; Cantine ${c.turn} min` : '';
-    return `<div class="course-item">
-      <div class="course-dot"></div>
-      <div class="course-info">
-        <div class="course-name">${c.name}</div>
-        <div class="course-meta">Par ${par} &bull; ${th}h${String(tm).padStart(2,'0')} &bull; espace ${c.spacing} min &bull; ±${c.tol} min${turn}</div>
+
+  // Calcul de la moyenne globale pour référence
+  container.innerHTML = groups.map(g => {
+    const elapsed = g.running ? g.elapsed+(Date.now()-g.startTs) : g.elapsed;
+    const avgMs   = g.laps.length ? g.laps.reduce((a,b)=>a+b,0)/g.laps.length : 0;
+    const avgStr  = g.laps.length ? chronoFmt(avgMs) : '—';
+    const trous   = g.laps.length;
+
+    const lapRows = g.laps.map((t,i)=>{
+      const cls = lapClass(t, avgMs);
+      return `<div class="lap-row"><span class="lr-hole">Trou ${i+1}</span><span class="lr-time ${cls}">${chronoFmt(t)}</span></div>`;
+    }).reverse().join('');
+
+    const hasBadLap = g.laps.some(t=>t > avgMs+60000);
+
+    return `<div class="gc-card ${g.running?'active-gc':''}" id="gcard-${g.id}">
+      <div class="gc-top">
+        <div class="gc-num" style="background:${g.color}20;color:${g.color}">${g.laps.length+1}</div>
+        <div style="flex:1">
+          <input type="text" value="${g.name}" onchange="updateGroupName(${g.id},this.value)"
+            style="height:32px;font-size:14px;font-weight:500;border:none;background:none;padding:0;width:100%;outline:none;color:var(--tx)"/>
+          <div class="gc-meta">${trous} trous enregistrés${avgMs?` &bull; moy. ${avgStr}`:''}</div>
+        </div>
+        <div class="gc-time ${g.running?'running':'stopped'}" id="gtime-${g.id}">${chronoFmt(elapsed)}</div>
       </div>
-      <div style="display:flex;gap:6px">
-        <button class="btn-sm" onclick="editCourse(${i})">Modifier</button>
-        <button class="btn-sm btn-danger" onclick="deleteCourse(${i})">✕</button>
+
+      <div class="gc-btns">
+        ${!g.running
+          ? `<button class="bstart" onclick="groupStart(${g.id})">▶ Démarrer</button>`
+          : `<button class="bstop"  onclick="groupStop(${g.id})">⏸ Pause</button>`}
+        <button class="blap" onclick="groupLap(${g.id})" ${!g.running?'disabled style="opacity:.4"':''}>✓ Trou ${trous+1}</button>
+        <button onclick="groupReset(${g.id})" style="flex:0;padding:0 10px">↺</button>
+        <button class="bdg bxs" onclick="groupDelete(${g.id})" style="flex:0;height:38px;padding:0 10px">✕</button>
+      </div>
+
+      ${trous>0?`<div class="gc-summary">
+        <span class="gc-badge">Trous : ${trous}</span>
+        <span class="gc-badge">Moy. : ${avgStr}</span>
+        ${hasBadLap?'<span class="gc-badge bad">⚠ Trou lent détecté</span>':''}
+      </div>`:''}
+
+      ${trous>0?`<div class="gc-laps">${lapRows}</div>`:''}
+
+      <div>
+        <label style="margin-bottom:4px">Commentaires</label>
+        <textarea class="gc-comment" placeholder="Notes, avertissements, observations..."
+          onchange="updateGroupComment(${g.id},this.value)">${g.comment}</textarea>
       </div>
     </div>`;
   }).join('');
-}
 
-function buildHoleInputs(par, mins) {
-  ['front','back'].forEach(side => {
-    const start = side === 'front' ? 0 : 9;
-    const el    = document.getElementById('hole-inputs-' + side);
-    el.innerHTML = '';
-    for (let i = start; i < start + 9; i++) {
-      const p = par  ? par[i]  : [4,5,3,5,4,3,4,4,4,5,3,4,3,4,5,4,3,4][i];
-      const m = mins ? mins[i] : (p===3?12:p===5?18:15);
-      el.innerHTML += `<div class="hole-box">
-        <div class="hole-label">Trou ${i+1}</div>
-        <div class="hole-inputs">
-          <input type="number" id="hp${i}" value="${p}" min="3" max="5" placeholder="Par" oninput="autoMin(${i})"/>
-          <input type="number" id="hm${i}" value="${m}" min="5" max="45" placeholder="min"/>
-        </div>
-        <div class="hole-hint">par / minutes</div>
-      </div>`;
+  // Relance les intervalles pour les groupes en cours
+  groups.forEach(g => {
+    if (g.running && !groupIntervals[g.id]) {
+      groupIntervals[g.id] = setInterval(()=>updateGroupDisplay(g.id), 200);
     }
   });
 }
 
-function autoMin(i) {
-  const p = parseInt(document.getElementById('hp'+i).value);
-  if      (p===3) document.getElementById('hm'+i).value = 12;
-  else if (p===4) document.getElementById('hm'+i).value = 15;
-  else if (p===5) document.getElementById('hm'+i).value = 18;
+/* ─── Parcours ─── */
+function renderCourseList() {
+  const el=document.getElementById('course-list');
+  if(!courses.length){el.innerHTML='<div class="empty"><div class="eico">📭</div>Aucun parcours.<br>Ajoutez-en un avec "+ Nouveau".</div>';return;}
+  el.innerHTML=courses.map((c,i)=>{
+    const par=c.par.reduce((a,b)=>a+b,0),tot=c.mins.reduce((a,b)=>a+b,0)+(c.turn||0);
+    const th=Math.floor(tot/60),tm=tot%60,turn=c.turn?` &bull; Cantine ${c.turn} min`:'';
+    return `<div class="ci2"><div class="cdot"></div><div class="cnfo"><div class="cname">${c.name}</div><div class="cmeta">Par ${par} &bull; ${th}h${String(tm).padStart(2,'0')} &bull; espace ${c.spacing} min &bull; ±${c.tol} min${turn}</div></div><div style="display:flex;gap:6px"><button class="bsm" onclick="editCourse(${i})">Modifier</button><button class="bsm bdg" onclick="deleteCourse(${i})">✕</button></div></div>`;
+  }).join('');
 }
 
-function showNewForm() {
-  editIdx = -1;
-  document.getElementById('form-card-title').innerHTML = '<div class="card-title-icon">✏️</div>Nouveau parcours';
-  document.getElementById('f-name').value    = '';
-  document.getElementById('f-spacing').value = '8';
-  document.getElementById('f-tol').value     = '5';
-  document.getElementById('f-turn').value    = '0';
-  buildHoleInputs(null, null);
-  showTab('nouveau');
+function buildHoleInputs(par,mins) {
+  ['front','back'].forEach(side=>{
+    const start=side==='front'?0:9,el=document.getElementById('hole-inputs-'+side);
+    el.innerHTML='';
+    for(let i=start;i<start+9;i++){
+      const p=par?par[i]:[4,5,3,5,4,3,4,4,4,5,3,4,3,4,5,4,3,4][i];
+      const m=mins?mins[i]:(p===3?12:p===5?18:15);
+      el.innerHTML+=`<div class="hbox"><div class="hlbl">Trou ${i+1}</div><div class="hinp"><input type="number" id="hp${i}" value="${p}" min="3" max="5" placeholder="Par" oninput="autoMin(${i})"/><input type="number" id="hm${i}" value="${m}" min="5" max="45" placeholder="min"/></div><div class="hh">par / minutes</div></div>`;
+    }
+  });
 }
 
-function editCourse(i) {
-  editIdx = i;
-  const c = courses[i];
-  document.getElementById('form-card-title').innerHTML = `<div class="card-title-icon">✏️</div>Modifier : ${c.name}`;
-  document.getElementById('f-name').value    = c.name;
-  document.getElementById('f-spacing').value = c.spacing;
-  document.getElementById('f-tol').value     = c.tol;
-  document.getElementById('f-turn').value    = c.turn || 0;
-  buildHoleInputs(c.par, c.mins);
-  showTab('nouveau');
+function autoMin(i){const p=parseInt(document.getElementById('hp'+i).value);if(p===3)document.getElementById('hm'+i).value=12;else if(p===4)document.getElementById('hm'+i).value=15;else if(p===5)document.getElementById('hm'+i).value=18;}
+
+function showNewForm(){editIdx=-1;document.getElementById('form-card-title').innerHTML='<div class="ci">✏️</div>Nouveau parcours';document.getElementById('f-name').value='';document.getElementById('f-spacing').value='8';document.getElementById('f-tol').value='5';document.getElementById('f-turn').value='0';buildHoleInputs(null,null);showTab('nouveau');}
+
+function editCourse(i){editIdx=i;const c=courses[i];document.getElementById('form-card-title').innerHTML=`<div class="ci">✏️</div>Modifier : ${c.name}`;document.getElementById('f-name').value=c.name;document.getElementById('f-spacing').value=c.spacing;document.getElementById('f-tol').value=c.tol;document.getElementById('f-turn').value=c.turn||0;buildHoleInputs(c.par,c.mins);showTab('nouveau');}
+
+function saveCourse(){
+  const name=document.getElementById('f-name').value.trim();
+  if(!name){showToast('Entrez un nom pour le parcours');return;}
+  const spacing=parseInt(document.getElementById('f-spacing').value)||8;
+  const tol=parseInt(document.getElementById('f-tol').value)||5;
+  const turn=parseInt(document.getElementById('f-turn').value)||0;
+  const par=[],mins=[];
+  for(let i=0;i<18;i++){par.push(parseInt(document.getElementById('hp'+i).value)||4);mins.push(parseInt(document.getElementById('hm'+i).value)||15);}
+  const obj={name,spacing,tol,turn,par,mins};
+  if(editIdx>=0){courses[editIdx]=obj;showToast('Parcours modifié !');}else{courses.push(obj);showToast('Parcours ajouté !');}
+  saveData();editIdx=-1;populateCourseSelect();showTab('parcours');
 }
 
-function saveCourse() {
-  const name = document.getElementById('f-name').value.trim();
-  if (!name) { showToast('Entrez un nom pour le parcours'); return; }
-  const spacing = parseInt(document.getElementById('f-spacing').value) || 8;
-  const tol     = parseInt(document.getElementById('f-tol').value)     || 5;
-  const turn    = parseInt(document.getElementById('f-turn').value)    || 0;
-  const par = [], mins = [];
-  for (let i = 0; i < 18; i++) {
-    par.push(parseInt(document.getElementById('hp'+i).value) || 4);
-    mins.push(parseInt(document.getElementById('hm'+i).value) || 15);
-  }
-  const obj = { name, spacing, tol, turn, par, mins };
-  if (editIdx >= 0) { courses[editIdx] = obj; showToast('Parcours modifié !'); }
-  else              { courses.push(obj);       showToast('Parcours ajouté !'); }
-  saveData();
-  editIdx = -1;
-  populateCourseSelect();
-  showTab('parcours');
+function deleteCourse(i){if(!confirm(`Supprimer "${courses[i].name}" ?`))return;courses.splice(i,1);saveData();renderCourseList();populateCourseSelect();showToast('Parcours supprimé');}
+function cancelForm(){editIdx=-1;showTab(courses.length>0?'parcours':'suivi');}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+
+function exportCourses(){
+  if(!courses.length){showToast('Aucun parcours à exporter');return;}
+  const data=JSON.stringify({version:1,exportDate:new Date().toISOString(),courses},null,2);
+  const blob=new Blob([data],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='marshal-parcours.json';
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);URL.revokeObjectURL(url);
+  showToast('✓ '+courses.length+' parcours exportés !');
 }
 
-function deleteCourse(i) {
-  if (!confirm(`Supprimer "${courses[i].name}" ?`)) return;
-  courses.splice(i, 1);
-  saveData();
-  renderCourseList();
-  populateCourseSelect();
-  showToast('Parcours supprimé');
-}
-
-function cancelForm() {
-  editIdx = -1;
-  showTab(courses.length > 0 ? 'parcours' : 'suivi');
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+function importCourses(event){
+  const file=event.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      const data=JSON.parse(e.target.result);
+      const imported=Array.isArray(data)?data:(data.courses||[]);
+      if(!imported.length){showToast('Aucun parcours trouvé dans le fichier');return;}
+      const valid=imported.filter(c=>c.name&&Array.isArray(c.par)&&Array.isArray(c.mins)&&c.par.length===18&&c.mins.length===18);
+      if(!valid.length){showToast('Format de fichier invalide');return;}
+      const existing=courses.length;
+      let replace=false;
+      if(existing>0){
+        const existingNames=courses.map(c=>c.name).join('\n  • ');
+        const newNames=valid.map(c=>c.name).join('\n  • ');
+        replace=confirm(
+          '⚠️ CONFIRMATION AVANT ÉCRASEMENT\n\n'+
+          'Parcours actuels ('+existing+') :\n  • '+existingNames+'\n\n'+
+          'Parcours à importer ('+valid.length+') :\n  • '+newNames+'\n\n'+
+          'OK = Remplacer définitivement tous les parcours existants\n'+
+          'Annuler = Ajouter seulement les nouveaux parcours'
+        );
+      }
+      if(replace){courses=valid;}
+      else{valid.forEach(c=>{if(!courses.find(x=>x.name===c.name))courses.push(c);else showToast('"'+c.name+'" existe déjà, ignoré');});}
+      saveData();populateCourseSelect();renderCourseList();
+      showToast('✓ '+valid.length+' parcours importés !');
+    }catch(err){showToast('Erreur de lecture du fichier');}
+    event.target.value='';
+  };
+  reader.readAsText(file);
 }
 
 loadData();
