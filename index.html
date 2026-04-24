@@ -11,16 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --gd: #1a4a2e; --gm: #2d6e47; --gl: #3d8f5f;
-  --gp: #e8f5ee; --gmu: #c2dece;
-  --ap: #fef3c7; --red: #b91c1c; --rp: #fee2e2;
-  --bl: #1d4ed8; --bp: #dbeafe;
-  --tx: #1a1a1a; --tm: #5a6a60; --th: #8fa396;
-  --bg: #f4f7f5; --sf: #ffffff;
-  --bo: rgba(45,110,71,0.15); --bs: rgba(45,110,71,0.3);
-  --r: 12px; --rs: 8px;
-}
+:root{--gd:#1a4a2e;--gm:#2d6e47;--gl:#3d8f5f;--gp:#e8f5ee;--gmu:#c2dece;--ap:#fef3c7;--red:#b91c1c;--rp:#fee2e2;--bl:#1d4ed8;--bp:#dbeafe;--tx:#1a1a1a;--tm:#5a6a60;--th:#8fa396;--bg:#f4f7f5;--sf:#ffffff;--bo:rgba(45,110,71,0.15);--bs:rgba(45,110,71,0.3);--r:12px;--rs:8px}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100dvh;max-width:480px;margin:0 auto}
 .header{background:var(--gd);padding:52px 20px 16px;display:flex;align-items:center;justify-content:space-between}
@@ -50,8 +41,7 @@ button:active{transform:scale(.97)}
 .bnow{height:44px;padding:0 12px;background:var(--gp);border-color:var(--gmu);color:var(--gd);font-size:13px;white-space:nowrap}
 .bdg{border-color:#fca5a5;color:var(--red);background:#fff5f5}
 .bsm{height:34px;padding:0 12px;font-size:13px}
-.bxs{height:28px;padding:0 8px;font-size:11px}
-/* Status */
+.bxs{height:34px;padding:0 10px;font-size:13px}
 .status{border-radius:var(--r);padding:20px 16px;text-align:center;margin-bottom:12px;border:1.5px solid var(--bo)}
 .status.ok{background:var(--gp);border-color:var(--gmu)}
 .status.late{background:var(--ap);border-color:#fcd34d}
@@ -66,29 +56,25 @@ button:active{transform:scale(.97)}
 .status.vlate .sti,.status.vlate .ssu{color:var(--red)}
 .status.early .sti{color:var(--bl)}.status.early .ssu{color:var(--bl)}
 .status.none .sti,.status.none .ssu{color:var(--th)}
-/* Info cards */
 .icards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .icard{background:var(--sf);border:1px solid var(--bo);border-radius:var(--r);padding:12px 14px}
 .iclbl{font-size:11px;font-weight:600;color:var(--tm);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
-.icval{font-size:20px;font-weight:600;font-family:'DM Mono',monospace;color:var(--tx)}
+.icval{font-size:20px;font-weight:600;font-family:'DM Mono',monospace}
 .icval.g{color:var(--gd)}.icval.a{color:#92400e}.icval.r{color:var(--red)}.icval.b{color:var(--bl)}
-/* Table */
 .tw{overflow-x:auto;margin-top:4px}
 table{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
 th{color:var(--tm);font-weight:500;text-align:left;padding:5px;border-bottom:1px solid var(--bo);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
 td{padding:5px;color:var(--tx);border-bottom:1px solid var(--bo)}
 tr:last-child td{border-bottom:none}
 tr.ar td{background:var(--gp);color:var(--gd);font-weight:600}
-tr.tr td{background:#fef9c3;color:#713f12;font-style:italic}
+tr.ttr td{background:#fef9c3;color:#713f12;font-style:italic}
 .tdm{color:var(--th);font-size:11px}
-/* Course list */
 .ci2{padding:12px 0;border-bottom:1px solid var(--bo);display:flex;align-items:center;gap:10px}
 .ci2:last-child{border-bottom:none}
 .cdot{width:10px;height:10px;border-radius:50%;background:var(--gl);flex-shrink:0}
 .cnfo{flex:1;min-width:0}
 .cname{font-weight:500;font-size:14px}
 .cmeta{font-size:12px;color:var(--tm);margin-top:2px}
-/* Hole form */
 .hgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}
 .hbox{background:var(--bg);border-radius:var(--rs);padding:8px 10px;border:1px solid var(--bo)}
 .hlbl{font-size:11px;font-weight:600;color:var(--tm);text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px}
@@ -104,51 +90,49 @@ tr.tr td{background:#fef9c3;color:#713f12;font-style:italic}
 .inote{font-size:12px;color:var(--tm);background:var(--bg);border-radius:var(--rs);padding:8px 10px;margin-top:10px;border-left:3px solid var(--gmu)}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gd);color:#fff;padding:10px 20px;border-radius:24px;font-size:14px;font-weight:500;transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:100;white-space:nowrap;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0)}
-.div{height:1px;background:var(--bo);margin:12px 0}
-
-/* ── Groupes chrono ── */
-.gc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.gc-title{font-size:15px;font-weight:600}
+/* Groupes */
 .gc-card{background:var(--sf);border:1px solid var(--bo);border-radius:var(--r);padding:14px;margin-bottom:10px}
 .gc-card.active-gc{border-color:var(--gm);border-width:2px}
-.gc-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.gc-num{width:32px;height:32px;border-radius:50%;background:var(--gp);color:var(--gd);font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.gc-name{font-weight:500;font-size:14px;flex:1}
-.gc-time{font-family:'DM Mono',monospace;font-size:22px;font-weight:600;color:var(--tx)}
+.gc-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.gc-num{width:38px;height:38px;border-radius:50%;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.3px}
+.gc-info{flex:1;min-width:0}
+.gc-name-input{height:32px;font-size:14px;font-weight:500;border:none;background:none;padding:0;width:100%;outline:none;color:var(--tx);font-family:'DM Sans',sans-serif}
+.gc-meta{font-size:12px;color:var(--tm);margin-top:2px}
+.gc-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.gc-time{font-family:'DM Mono',monospace;font-size:24px;font-weight:600;line-height:1}
 .gc-time.running{color:var(--gd)}
 .gc-time.stopped{color:var(--tm)}
-.gc-meta{font-size:12px;color:var(--tm);margin-top:2px}
+.gc-hole-row{display:flex;align-items:center;gap:6px}
+.gc-hole-lbl{font-size:11px;color:var(--th);white-space:nowrap}
+.gc-hole-sel{height:30px;font-size:12px;padding:0 22px 0 8px;border-radius:6px;border:1.5px solid var(--bo);background:var(--bg);color:var(--tm);width:96px;font-family:'DM Sans',sans-serif;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238fa396' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;cursor:pointer}
+.gc-hole-sel:disabled{opacity:.45;cursor:not-allowed}
 .gc-btns{display:flex;gap:6px;margin-bottom:10px}
-.gc-btns button{flex:1;height:38px;font-size:13px}
+.gc-btns button{flex:1;height:40px;font-size:13px}
 .bstart{background:var(--gd);color:#fff;border-color:var(--gd)}
-.bstop{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+.bstop{background:var(--ap);color:#92400e;border-color:#fcd34d}
 .blap{background:var(--bp);color:var(--bl);border-color:#93c5fd}
-.gc-laps{margin-bottom:8px}
-.lap-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--bo);font-size:12px}
+.blap:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.gc-laps{margin-bottom:10px}
+.lap-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--bo);font-size:13px}
 .lap-row:last-child{border-bottom:none}
-.lr-hole{color:var(--tm)}
+.lr-hole{color:var(--tm);font-size:12px}
 .lr-time{font-family:'DM Mono',monospace;font-weight:500}
-.lr-avg-good{color:var(--gd)}
-.lr-avg-bad{color:#92400e}
-.lr-avg-ugly{color:var(--red)}
-.gc-comment{width:100%;border:1.5px solid var(--bo);border-radius:var(--rs);font-size:13px;font-family:'DM Sans',sans-serif;color:var(--tx);background:var(--bg);outline:none;padding:8px 10px;resize:none;min-height:52px;line-height:1.5;transition:border-color .15s}
-.gc-comment:focus{border-color:var(--gm)}
-.gc-comment::placeholder{color:var(--th)}
+.lr-good{color:var(--gd)}.lr-warn{color:#92400e}.lr-bad{color:var(--red)}
 .gc-summary{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
 .gc-badge{font-size:11px;padding:3px 10px;border-radius:12px;background:var(--gp);color:var(--gd);border:1px solid var(--gmu)}
 .gc-badge.warn{background:var(--ap);color:#92400e;border-color:#fcd34d}
 .gc-badge.bad{background:var(--rp);color:var(--red);border-color:#fca5a5}
+.gc-comment{width:100%;border:1.5px solid var(--bo);border-radius:var(--rs);font-size:13px;font-family:'DM Sans',sans-serif;color:var(--tx);background:var(--bg);outline:none;padding:8px 10px;resize:none;min-height:52px;line-height:1.5;transition:border-color .15s}
+.gc-comment:focus{border-color:var(--gm)}
+.gc-comment::placeholder{color:var(--th)}
 .add-group-btn{width:100%;height:44px;border:1.5px dashed var(--bs);background:none;color:var(--tm);font-size:14px;border-radius:var(--r);cursor:pointer;font-family:'DM Sans',sans-serif}
-.add-group-btn:hover{background:var(--gp);color:var(--gd);border-color:var(--gmu)}
+.add-group-btn:active{background:var(--gp)}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div>
-    <div class="htitle">Marshal Golf</div>
-    <div class="hsub" id="hcourse">Sélectionnez un parcours</div>
-  </div>
+  <div><div class="htitle">Marshal Golf</div><div class="hsub" id="hcourse">Sélectionnez un parcours</div></div>
   <div class="hicon">⛳</div>
 </div>
 
@@ -159,25 +143,18 @@ tr.tr td{background:#fef9c3;color:#713f12;font-style:italic}
   <button class="nt"        id="tab-nouveau"  onclick="showNewForm()">+ Nouveau</button>
 </div>
 
-<!-- ══════════ SUIVI ══════════ -->
+<!-- SUIVI -->
 <div id="view-suivi" class="content">
   <div class="card">
     <div class="ct"><div class="ci">🏌️</div>Informations du groupe</div>
-    <div class="field">
-      <label>Parcours</label>
-      <select id="sel-cours" onchange="onCourseChange()"></select>
-    </div>
+    <div class="field"><label>Parcours</label><select id="sel-cours" onchange="onCourseChange()"></select></div>
     <div class="r2 field">
       <div><label>Départ prévu</label><input type="time" id="tee-scheduled" step="60" oninput="calc()"/></div>
       <div><label>Départ réel</label><input type="time" id="tee-actual" step="60" oninput="calc()"/></div>
     </div>
     <div class="r2 field" style="margin-bottom:0">
-      <div>
-        <label>Trou actuel</label>
-        <select id="hole" onchange="calc()"><option value="">— Trou —</option></select>
-      </div>
-      <div>
-        <label>Heure observée</label>
+      <div><label>Trou actuel</label><select id="hole" onchange="calc()"><option value="">— Trou —</option></select></div>
+      <div><label>Heure observée</label>
         <div style="display:flex;gap:6px">
           <input type="time" id="now" step="60" oninput="calc()" style="flex:1"/>
           <button class="bnow" onclick="setNow()">Maint.</button>
@@ -186,37 +163,24 @@ tr.tr td{background:#fef9c3;color:#713f12;font-style:italic}
     </div>
     <div class="inote" id="delay-note" style="display:none"></div>
   </div>
-
-  <div class="status none" id="sc">
-    <div class="sico" id="si">🕐</div>
-    <div class="sti"  id="st">En attente</div>
-    <div class="ssu"  id="ss">Sélectionnez un parcours et entrez les données</div>
-  </div>
-
+  <div class="status none" id="sc"><div class="sico" id="si">🕐</div><div class="sti" id="st">En attente</div><div class="ssu" id="ss">Sélectionnez un parcours et entrez les données</div></div>
   <div class="icards" id="icards" style="display:none">
     <div class="icard"><div class="iclbl">Fin prévue</div><div class="icval g" id="ic-fin">—</div></div>
     <div class="icard"><div class="iclbl">Écart total</div><div class="icval" id="ic-ecart">—</div></div>
   </div>
-
   <div id="table-card" style="display:none">
     <div class="card">
       <div class="ct"><div class="ci">📋</div><span id="table-title">Tableau des temps</span></div>
       <div style="margin-bottom:10px" id="chips-wrap"></div>
-      <div class="tw">
-        <table>
-          <thead><tr>
-            <th style="width:16%">Trou</th><th style="width:10%">Par</th>
-            <th style="width:24%">Début prévu</th><th style="width:24%">Début réel</th>
-            <th style="width:26%">Alloué</th>
-          </tr></thead>
-          <tbody id="tb"></tbody>
-        </table>
-      </div>
+      <div class="tw"><table>
+        <thead><tr><th style="width:16%">Trou</th><th style="width:10%">Par</th><th style="width:24%">Début prévu</th><th style="width:24%">Début réel</th><th style="width:26%">Alloué</th></tr></thead>
+        <tbody id="tb"></tbody>
+      </table></div>
     </div>
   </div>
 </div>
 
-<!-- ══════════ GROUPES (chrono multi) ══════════ -->
+<!-- GROUPES -->
 <div id="view-groupes" class="content" style="display:none">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
     <div style="font-size:15px;font-weight:600">Suivi des groupes</div>
@@ -226,13 +190,12 @@ tr.tr td{background:#fef9c3;color:#713f12;font-style:italic}
   <button class="add-group-btn" onclick="addGroup()">+ Ajouter un groupe</button>
 </div>
 
-<!-- ══════════ PARCOURS ══════════ -->
+<!-- PARCOURS -->
 <div id="view-parcours" class="content" style="display:none">
   <div class="card">
     <div class="ct"><div class="ci">📍</div>Mes parcours</div>
     <div id="course-list"></div>
   </div>
-
   <div class="card">
     <div class="ct"><div class="ci">💾</div>Sauvegarde des parcours</div>
     <p style="font-size:13px;color:var(--tm);margin-bottom:14px">Exportez vos parcours pour les sauvegarder ou les transférer sur un autre appareil.</p>
@@ -245,7 +208,7 @@ tr.tr td{background:#fef9c3;color:#713f12;font-style:italic}
   </div>
 </div>
 
-<!-- ══════════ NOUVEAU / MODIFIER ══════════ -->
+<!-- NOUVEAU / MODIFIER -->
 <div id="view-nouveau" class="content" style="display:none">
   <div class="card">
     <div class="ct" id="form-card-title"><div class="ci">✏️</div>Nouveau parcours</div>
@@ -272,85 +235,47 @@ tr.tr td{background:#fef9c3;color:#713f12;font-style:italic}
 <div class="toast" id="toast"></div>
 
 <script>
-const KEY = 'marshal_v5';
-let courses = [];
-let editIdx = -1;
+const KEY='marshal_v6';
+let courses=[],groups=[],editIdx=-1,groupIntervals={},nextGroupId=1;
+const COLORS=['#1a4a2e','#1d4ed8','#92400e','#7c3aed','#be185d','#0f766e'];
 
-/* ─────────────────────────────────────────
-   GROUPES — structure
-   Chaque groupe : { id, name, running, startTs, elapsed, laps[], comment, color }
-───────────────────────────────────────── */
-let groups = [];
-let groupIntervals = {};
-const GROUP_COLORS = ['#1a4a2e','#1d4ed8','#92400e','#7c3aed','#be185d','#0f766e'];
-
-function loadData() {
-  try {
-    const d = localStorage.getItem(KEY);
-    if (d) { const p = JSON.parse(d); courses = p.courses || []; groups = p.groups || []; }
-  } catch(e) {}
-  if (!courses.length) {
-    courses = [{name:'Farnham 2026',spacing:8,tol:5,turn:10,
-      par:[4,5,3,5,4,3,4,4,4,5,3,4,3,4,5,4,3,4],
-      mins:[15,18,12,18,15,12,15,15,15,18,12,15,12,15,18,15,12,15]}];
-  }
-  // Arrête les chronos qui étaient en cours (après rechargement)
-  groups.forEach(g => { g.running = false; });
+function loadData(){
+  try{const d=localStorage.getItem(KEY);if(d){const p=JSON.parse(d);courses=p.courses||[];groups=p.groups||[];}}catch(e){}
+  if(!courses.length){courses=[{name:'Farnham 2026',spacing:8,tol:5,turn:10,par:[4,5,3,5,4,3,4,4,4,5,3,4,3,4,5,4,3,4],mins:[15,18,12,18,15,12,15,15,15,18,12,15,12,15,18,15,12,15]}];}
+  groups.forEach(g=>{g.running=false;});
   saveData();
 }
+function saveData(){try{localStorage.setItem(KEY,JSON.stringify({courses,groups}));}catch(e){}}
 
-function saveData() {
-  try { localStorage.setItem(KEY, JSON.stringify({courses, groups})); } catch(e) {}
-}
-
-/* ─── Navigation ─── */
-function showTab(t) {
-  ['suivi','groupes','parcours','nouveau'].forEach(v => {
-    document.getElementById('view-'+v).style.display = v===t?'':'none';
-    const tab = document.getElementById('tab-'+v);
-    if (tab) tab.classList.toggle('active', v===t);
+function showTab(t){
+  ['suivi','groupes','parcours','nouveau'].forEach(v=>{
+    document.getElementById('view-'+v).style.display=v===t?'':'none';
+    const tab=document.getElementById('tab-'+v);if(tab)tab.classList.toggle('active',v===t);
   });
-  if (t==='parcours') renderCourseList();
-  if (t==='suivi')    { populateCourseSelect(); calc(); }
-  if (t==='groupes')  renderGroups();
+  if(t==='parcours')renderCourseList();
+  if(t==='suivi'){populateCourseSelect();calc();}
+  if(t==='groupes')renderGroups();
 }
 
-/* ─── Suivi ─── */
-function populateCourseSelect() {
-  const sel = document.getElementById('sel-cours');
-  const prev = sel.value;
-  sel.innerHTML = courses.length===0
-    ? '<option value="">— Aucun parcours —</option>'
-    : courses.map((c,i)=>`<option value="${i}">${c.name}</option>`).join('');
-  if (prev!=='' && sel.querySelector(`option[value="${prev}"]`)) sel.value = prev;
+/* ── Suivi ── */
+function populateCourseSelect(){
+  const sel=document.getElementById('sel-cours'),prev=sel.value;
+  sel.innerHTML=courses.length===0?'<option value="">— Aucun parcours —</option>':courses.map((c,i)=>`<option value="${i}">${c.name}</option>`).join('');
+  if(prev!==''&&sel.querySelector(`option[value="${prev}"]`))sel.value=prev;
   onCourseChange();
 }
-
-function onCourseChange() {
-  const idx = parseInt(document.getElementById('sel-cours').value);
-  const hSel = document.getElementById('hole');
-  hSel.innerHTML = '<option value="">— Trou —</option>';
-  if (isNaN(idx)||!courses[idx]) {
-    document.getElementById('table-card').style.display='none';
-    document.getElementById('icards').style.display='none';
-    document.getElementById('hcourse').textContent='Sélectionnez un parcours';
-    return;
-  }
-  document.getElementById('hcourse').textContent = courses[idx].name;
-  for (let i=1;i<=18;i++) { const o=document.createElement('option'); o.value=i; o.textContent='Trou '+i; hSel.appendChild(o); }
+function onCourseChange(){
+  const idx=parseInt(document.getElementById('sel-cours').value),hSel=document.getElementById('hole');
+  hSel.innerHTML='<option value="">— Trou —</option>';
+  if(isNaN(idx)||!courses[idx]){document.getElementById('table-card').style.display='none';document.getElementById('icards').style.display='none';document.getElementById('hcourse').textContent='Sélectionnez un parcours';return;}
+  document.getElementById('hcourse').textContent=courses[idx].name;
+  for(let i=1;i<=18;i++){const o=document.createElement('option');o.value=i;o.textContent='Trou '+i;hSel.appendChild(o);}
   calc();
 }
-
-function toMin(s) { if(!s)return null; const[h,m]=s.split(':').map(Number); return h*60+m; }
-function fmtT(m) { if(m==null)return'—'; const h=Math.floor(m/60)%24,mn=m%60; return String(h).padStart(2,'0')+':'+String(mn).padStart(2,'0'); }
-
-function holeStartTimes(c, start) {
-  const turn=c.turn||0; const starts=[]; let t=start;
-  for(let i=0;i<18;i++) { starts.push(t); t+=c.mins[i]; if(i===8&&turn>0)t+=turn; }
-  return starts;
-}
-
-function calc() {
+function toMin(s){if(!s)return null;const[h,m]=s.split(':').map(Number);return h*60+m;}
+function fmtT(m){if(m==null)return'—';const h=Math.floor(m/60)%24,mn=m%60;return String(h).padStart(2,'0')+':'+String(mn).padStart(2,'0');}
+function holeStartTimes(c,start){const turn=c.turn||0,starts=[];let t=start;for(let i=0;i<18;i++){starts.push(t);t+=c.mins[i];if(i===8&&turn>0)t+=turn;}return starts;}
+function calc(){
   const cidx=parseInt(document.getElementById('sel-cours').value);
   const teeS=toMin(document.getElementById('tee-scheduled').value);
   const teeA=toMin(document.getElementById('tee-actual').value);
@@ -365,13 +290,11 @@ function calc() {
   document.getElementById('table-card').style.display='';
   document.getElementById('table-title').textContent=c.name;
   const par=c.par.reduce((a,b)=>a+b,0),tot=c.mins.reduce((a,b)=>a+b,0)+(c.turn||0);
-  const th=Math.floor(tot/60),tm=tot%60;
-  const tc=(c.turn||0)>0?`<span class="chip">Cantine ${c.turn} min</span>`:'';
+  const th=Math.floor(tot/60),tm=tot%60,tc=(c.turn||0)>0?`<span class="chip">Cantine ${c.turn} min</span>`:'';
   document.getElementById('chips-wrap').innerHTML=`<span class="chip">Par ${par}</span><span class="chip">${th}h${String(tm).padStart(2,'0')} total</span><span class="chip">Espace ${c.spacing} min</span><span class="chip">Tol. ±${c.tol} min</span>${tc}`;
   if(!eff||!now||!hole){setStatus('none','🕐','En attente','Entrez l\'heure de départ et le trou');document.getElementById('icards').style.display='none';return;}
   const starts=holeStartTimes(c,eff);
-  const finMin=starts[17]+c.mins[17];
-  document.getElementById('ic-fin').textContent=fmtT(finMin);
+  document.getElementById('ic-fin').textContent=fmtT(starts[17]+c.mins[17]);
   const exp=starts[hole-1],diff=now-exp,abs=Math.abs(diff),sign=diff>0?'+':'−',tol=c.tol||5;
   const eEl=document.getElementById('ic-ecart');
   eEl.textContent=abs===0?'À l\'heure':sign+abs+' min';
@@ -382,196 +305,142 @@ function calc() {
   else if(diff>tol)setStatus('late','↓','En retard','Retard de '+abs+' min au trou '+hole);
   else setStatus('early','↑','En avance','Avance de '+abs+' min au trou '+hole);
 }
-
-function buildTable(c,scheduledStart,actualStart,currentHole) {
-  const turn=c.turn||0;
-  const ss=scheduledStart?holeStartTimes(c,scheduledStart):null;
-  const as=actualStart?holeStartTimes(c,actualStart):null;
+function buildTable(c,sS,aS,cur){
+  const turn=c.turn||0,ss=sS?holeStartTimes(c,sS):null,as=aS?holeStartTimes(c,aS):null;
   let rows='';
   for(let i=0;i<18;i++){
     const sc=ss?fmtT(ss[i]):'—',ac=as?fmtT(as[i]):'—';
     rows+=`<tr id="r${i+1}"><td>Trou ${i+1}</td><td>${c.par[i]}</td><td>${sc}</td><td>${ac}</td><td class="tdm">+${c.mins[i]} min</td></tr>`;
-    if(i===8&&turn>0){const cs=ss?fmtT(ss[i]+c.mins[i]):'—',ca=as?fmtT(as[i]+c.mins[i]):'—';rows+=`<tr class="tr"><td>🍔 Cantine</td><td>—</td><td>${cs}</td><td>${ca}</td><td class="tdm">+${turn} min</td></tr>`;}
+    if(i===8&&turn>0){const cs=ss?fmtT(ss[i]+c.mins[i]):'—',ca=as?fmtT(as[i]+c.mins[i]):'—';rows+=`<tr class="ttr"><td>🍔 Cantine</td><td>—</td><td>${cs}</td><td>${ca}</td><td class="tdm">+${turn} min</td></tr>`;}
   }
   document.getElementById('tb').innerHTML=rows;
   document.querySelectorAll('#tb tr').forEach(r=>r.classList.remove('ar'));
-  if(currentHole){const row=document.getElementById('r'+currentHole);if(row){row.classList.add('ar');row.scrollIntoView({block:'nearest'});}}
+  if(cur){const row=document.getElementById('r'+cur);if(row){row.classList.add('ar');row.scrollIntoView({block:'nearest'});}}
 }
-
-function setStatus(cls,icon,title,sub){document.getElementById('sc').className='status '+cls;document.getElementById('si').textContent=icon;document.getElementById('st').textContent=title;document.getElementById('ss').textContent=sub;}
+function setStatus(cls,ico,ti,su){document.getElementById('sc').className='status '+cls;document.getElementById('si').textContent=ico;document.getElementById('st').textContent=ti;document.getElementById('ss').textContent=su;}
 function setNow(){const n=new Date();document.getElementById('now').value=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');calc();}
 
-/* ─────────────────────────────────────────
-   GROUPES CHRONO
-───────────────────────────────────────── */
-let nextGroupId = 1;
-
-function addGroup() {
-  const id = nextGroupId++;
-  const num = groups.length + 1;
-  groups.push({id, name:'Groupe '+num, running:false, startTs:null, elapsed:0, laps:[], comment:'', color: GROUP_COLORS[(num-1) % GROUP_COLORS.length]});
-  saveData();
-  renderGroups();
+/* ── Groupes ── */
+function addGroup(){
+  const id=nextGroupId++,num=groups.length+1;
+  groups.push({id,name:'Groupe '+num,running:false,startTs:null,elapsed:0,laps:[],comment:'',color:COLORS[(num-1)%COLORS.length],startHole:1});
+  saveData();renderGroups();
 }
-
-function chronoFmt(ms) {
-  const total=Math.floor(ms/1000),m=Math.floor(total/60),s=total%60;
-  return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+function chronoFmt(ms){const t=Math.floor(ms/1000),m=Math.floor(t/60),s=t%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
+function groupStart(id){
+  const g=groups.find(x=>x.id===id);if(!g||g.running)return;
+  g.running=true;g.startTs=Date.now();
+  groupIntervals[id]=setInterval(()=>updateGroupDisplay(id),200);
+  saveData();renderGroups();
 }
-
-function groupStart(id) {
-  const g = groups.find(x=>x.id===id);
-  if (!g||g.running) return;
-  g.running=true; g.startTs=Date.now();
-  groupIntervals[id] = setInterval(()=>updateGroupDisplay(id), 200);
-  saveData(); renderGroups();
+function groupLap(id){
+  const g=groups.find(x=>x.id===id);if(!g||!g.running)return;
+  const elapsed=g.elapsed+(Date.now()-g.startTs);
+  const holeNum=(g.startHole||1)+g.laps.length;
+  g.laps.push(elapsed);g.elapsed=0;g.startTs=Date.now();
+  saveData();renderGroups();
+  showToast(g.name+' — Trou '+holeNum+' : '+chronoFmt(elapsed));
 }
-
-function groupLap(id) {
-  const g = groups.find(x=>x.id===id);
-  if (!g||!g.running) return;
-  const elapsed = g.elapsed + (Date.now()-g.startTs);
-  g.laps.push(elapsed);
-  g.elapsed=0; g.startTs=Date.now();
-  saveData(); renderGroups();
-  showToast('Groupe '+g.name+' — Trou '+g.laps.length+' : '+chronoFmt(elapsed));
+function groupStop(id){
+  const g=groups.find(x=>x.id===id);if(!g)return;
+  if(g.running){clearInterval(groupIntervals[id]);g.elapsed+=Date.now()-g.startTs;g.running=false;g.startTs=null;}
+  saveData();renderGroups();
 }
-
-function groupStop(id) {
-  const g = groups.find(x=>x.id===id);
-  if (!g) return;
-  if (g.running) {
-    clearInterval(groupIntervals[id]);
-    g.elapsed += Date.now()-g.startTs;
-    g.running=false; g.startTs=null;
-  }
-  saveData(); renderGroups();
-}
-
-function groupReset(id) {
-  const g = groups.find(x=>x.id===id);
-  if (!g) return;
+function groupReset(id){
+  const g=groups.find(x=>x.id===id);if(!g)return;
   clearInterval(groupIntervals[id]);
-  g.running=false; g.startTs=null; g.elapsed=0; g.laps=[];
-  saveData(); renderGroups();
+  g.running=false;g.startTs=null;g.elapsed=0;g.laps=[];
+  saveData();renderGroups();
 }
-
-function groupDelete(id) {
-  clearInterval(groupIntervals[id]);
-  groups = groups.filter(x=>x.id!==id);
-  saveData(); renderGroups();
-}
-
-function updateGroupDisplay(id) {
-  const g = groups.find(x=>x.id===id);
-  if (!g||!g.running) return;
+function groupDelete(id){clearInterval(groupIntervals[id]);groups=groups.filter(x=>x.id!==id);saveData();renderGroups();}
+function updateGroupDisplay(id){
+  const g=groups.find(x=>x.id===id);if(!g||!g.running)return;
   const el=document.getElementById('gtime-'+id);
-  if(el) el.textContent = chronoFmt(g.elapsed+(Date.now()-g.startTs));
+  if(el)el.textContent=chronoFmt(g.elapsed+(Date.now()-g.startTs));
 }
-
-function updateGroupComment(id, val) {
-  const g = groups.find(x=>x.id===id);
-  if (g) { g.comment=val; saveData(); }
+function updateGroupComment(id,val){const g=groups.find(x=>x.id===id);if(g){g.comment=val;saveData();}}
+function updateGroupName(id,val){const g=groups.find(x=>x.id===id);if(g){g.name=val;saveData();}}
+function updateGroupStartHole(id,val){
+  const g=groups.find(x=>x.id===id);
+  if(g){g.startHole=parseInt(val)||1;saveData();renderGroups();}
 }
-
-function updateGroupName(id, val) {
-  const g = groups.find(x=>x.id===id);
-  if (g) { g.name=val; saveData(); }
-}
-
-function clearAllGroups() {
-  if (!confirm('Effacer tous les groupes?')) return;
+function clearAllGroups(){
+  if(!confirm('Effacer tous les groupes?'))return;
   Object.values(groupIntervals).forEach(t=>clearInterval(t));
-  groupIntervals={};
-  groups=[];
-  saveData(); renderGroups();
+  groupIntervals={};groups=[];saveData();renderGroups();
 }
+function lapClass(ms,avg){if(!avg)return'';const d=ms-avg;if(d>3*60000)return'lr-bad';if(d>60000)return'lr-warn';return'lr-good';}
 
-function lapClass(ms, avgMs) {
-  if (!avgMs) return '';
-  const diff = ms - avgMs;
-  if (diff > 3*60*1000) return 'lr-avg-ugly';
-  if (diff > 1*60*1000) return 'lr-avg-bad';
-  return 'lr-avg-good';
-}
+function renderGroups(){
+  const container=document.getElementById('groups-container');
+  if(!groups.length){container.innerHTML='<div class="empty"><div class="eico">🏌️</div>Aucun groupe.<br>Appuyez sur "+ Ajouter un groupe".</div>';return;}
+  container.innerHTML=groups.map(g=>{
+    const elapsed=g.running?g.elapsed+(Date.now()-g.startTs):g.elapsed;
+    const avgMs=g.laps.length?g.laps.reduce((a,b)=>a+b,0)/g.laps.length:0;
+    const avgStr=g.laps.length?chronoFmt(avgMs):'—';
+    const trous=g.laps.length;
+    const startHole=g.startHole||1;
+    const nextHole=startHole+trous; // prochain trou à enregistrer
+    const locked=g.running||trous>0; // bloque le sélecteur une fois démarré
 
-function renderGroups() {
-  const container = document.getElementById('groups-container');
-  if (!groups.length) {
-    container.innerHTML = '<div class="empty"><div class="eico">🏌️</div>Aucun groupe.<br>Appuyez sur "+ Ajouter un groupe".</div>';
-    return;
-  }
-
-  // Calcul de la moyenne globale pour référence
-  container.innerHTML = groups.map(g => {
-    const elapsed = g.running ? g.elapsed+(Date.now()-g.startTs) : g.elapsed;
-    const avgMs   = g.laps.length ? g.laps.reduce((a,b)=>a+b,0)/g.laps.length : 0;
-    const avgStr  = g.laps.length ? chronoFmt(avgMs) : '—';
-    const trous   = g.laps.length;
-
-    const lapRows = g.laps.map((t,i)=>{
-      const cls = lapClass(t, avgMs);
-      return `<div class="lap-row"><span class="lr-hole">Trou ${i+1}</span><span class="lr-time ${cls}">${chronoFmt(t)}</span></div>`;
+    const lapRows=g.laps.map((t,i)=>{
+      const cls=lapClass(t,avgMs);
+      return `<div class="lap-row"><span class="lr-hole">Trou ${startHole+i}</span><span class="lr-time ${cls}">${chronoFmt(t)}</span></div>`;
     }).reverse().join('');
 
-    const hasBadLap = g.laps.some(t=>t > avgMs+60000);
+    const hasBadLap=g.laps.some(t=>t>avgMs+60000);
+    const holeOptions=Array.from({length:18},(_,i)=>`<option value="${i+1}"${startHole===i+1?' selected':''}>Trou ${i+1}</option>`).join('');
 
     return `<div class="gc-card ${g.running?'active-gc':''}" id="gcard-${g.id}">
       <div class="gc-top">
-        <div class="gc-num" style="background:${g.color}20;color:${g.color}">${g.laps.length+1}</div>
-        <div style="flex:1">
-          <input type="text" value="${g.name}" onchange="updateGroupName(${g.id},this.value)"
-            style="height:32px;font-size:14px;font-weight:500;border:none;background:none;padding:0;width:100%;outline:none;color:var(--tx)"/>
-          <div class="gc-meta">${trous} trous enregistrés${avgMs?` &bull; moy. ${avgStr}`:''}</div>
+        <div class="gc-num" style="background:${g.color}20;color:${g.color}">T${nextHole}</div>
+        <div class="gc-info">
+          <input class="gc-name-input" type="text" value="${g.name}" onchange="updateGroupName(${g.id},this.value)"/>
+          <div class="gc-meta">${trous} trous enregistrés${avgMs?' &bull; moy. '+avgStr:''}</div>
         </div>
-        <div class="gc-time ${g.running?'running':'stopped'}" id="gtime-${g.id}">${chronoFmt(elapsed)}</div>
+        <div class="gc-right">
+          <div class="gc-time ${g.running?'running':'stopped'}" id="gtime-${g.id}">${chronoFmt(elapsed)}</div>
+          <div class="gc-hole-row">
+            <span class="gc-hole-lbl">Départ :</span>
+            <select class="gc-hole-sel" onchange="updateGroupStartHole(${g.id},this.value)" ${locked?'disabled':''}>${holeOptions}</select>
+          </div>
+        </div>
       </div>
-
       <div class="gc-btns">
         ${!g.running
-          ? `<button class="bstart" onclick="groupStart(${g.id})">▶ Démarrer</button>`
-          : `<button class="bstop"  onclick="groupStop(${g.id})">⏸ Pause</button>`}
-        <button class="blap" onclick="groupLap(${g.id})" ${!g.running?'disabled style="opacity:.4"':''}>✓ Trou ${trous+1}</button>
-        <button onclick="groupReset(${g.id})" style="flex:0;padding:0 10px">↺</button>
-        <button class="bdg bxs" onclick="groupDelete(${g.id})" style="flex:0;height:38px;padding:0 10px">✕</button>
+          ?`<button class="bstart" onclick="groupStart(${g.id})">▶ Démarrer</button>`
+          :`<button class="bstop" onclick="groupStop(${g.id})">⏸ Pause</button>`}
+        <button class="blap" onclick="groupLap(${g.id})" ${!g.running?'disabled':''}>✓ Trou ${nextHole}</button>
+        <button onclick="groupReset(${g.id})" style="flex:0;padding:0 12px" title="Réinitialiser">↺</button>
+        <button class="bdg bxs" onclick="groupDelete(${g.id})" style="flex:0" title="Supprimer">✕</button>
       </div>
-
       ${trous>0?`<div class="gc-summary">
-        <span class="gc-badge">Trous : ${trous}</span>
-        <span class="gc-badge">Moy. : ${avgStr}</span>
-        ${hasBadLap?'<span class="gc-badge bad">⚠ Trou lent détecté</span>':''}
-      </div>`:''}
-
-      ${trous>0?`<div class="gc-laps">${lapRows}</div>`:''}
-
+        <span class="gc-badge">Trous ${startHole}–${startHole+trous-1}</span>
+        <span class="gc-badge">Moy. ${avgStr}</span>
+        ${hasBadLap?'<span class="gc-badge bad">⚠ Trou lent</span>':''}
+      </div>
+      <div class="gc-laps">${lapRows}</div>`:''}
       <div>
         <label style="margin-bottom:4px">Commentaires</label>
-        <textarea class="gc-comment" placeholder="Notes, avertissements, observations..."
-          onchange="updateGroupComment(${g.id},this.value)">${g.comment}</textarea>
+        <textarea class="gc-comment" placeholder="Notes, avertissements, observations..." onchange="updateGroupComment(${g.id},this.value)">${g.comment}</textarea>
       </div>
     </div>`;
   }).join('');
 
-  // Relance les intervalles pour les groupes en cours
-  groups.forEach(g => {
-    if (g.running && !groupIntervals[g.id]) {
-      groupIntervals[g.id] = setInterval(()=>updateGroupDisplay(g.id), 200);
-    }
-  });
+  groups.forEach(g=>{if(g.running&&!groupIntervals[g.id])groupIntervals[g.id]=setInterval(()=>updateGroupDisplay(g.id),200);});
 }
 
-/* ─── Parcours ─── */
-function renderCourseList() {
+/* ── Parcours ── */
+function renderCourseList(){
   const el=document.getElementById('course-list');
   if(!courses.length){el.innerHTML='<div class="empty"><div class="eico">📭</div>Aucun parcours.<br>Ajoutez-en un avec "+ Nouveau".</div>';return;}
   el.innerHTML=courses.map((c,i)=>{
     const par=c.par.reduce((a,b)=>a+b,0),tot=c.mins.reduce((a,b)=>a+b,0)+(c.turn||0);
-    const th=Math.floor(tot/60),tm=tot%60,turn=c.turn?` &bull; Cantine ${c.turn} min`:'';
+    const th=Math.floor(tot/60),tm=tot%60,turn=c.turn?' &bull; Cantine '+c.turn+' min':'';
     return `<div class="ci2"><div class="cdot"></div><div class="cnfo"><div class="cname">${c.name}</div><div class="cmeta">Par ${par} &bull; ${th}h${String(tm).padStart(2,'0')} &bull; espace ${c.spacing} min &bull; ±${c.tol} min${turn}</div></div><div style="display:flex;gap:6px"><button class="bsm" onclick="editCourse(${i})">Modifier</button><button class="bsm bdg" onclick="deleteCourse(${i})">✕</button></div></div>`;
   }).join('');
 }
-
-function buildHoleInputs(par,mins) {
+function buildHoleInputs(par,mins){
   ['front','back'].forEach(side=>{
     const start=side==='front'?0:9,el=document.getElementById('hole-inputs-'+side);
     el.innerHTML='';
@@ -582,13 +451,9 @@ function buildHoleInputs(par,mins) {
     }
   });
 }
-
 function autoMin(i){const p=parseInt(document.getElementById('hp'+i).value);if(p===3)document.getElementById('hm'+i).value=12;else if(p===4)document.getElementById('hm'+i).value=15;else if(p===5)document.getElementById('hm'+i).value=18;}
-
 function showNewForm(){editIdx=-1;document.getElementById('form-card-title').innerHTML='<div class="ci">✏️</div>Nouveau parcours';document.getElementById('f-name').value='';document.getElementById('f-spacing').value='8';document.getElementById('f-tol').value='5';document.getElementById('f-turn').value='0';buildHoleInputs(null,null);showTab('nouveau');}
-
 function editCourse(i){editIdx=i;const c=courses[i];document.getElementById('form-card-title').innerHTML=`<div class="ci">✏️</div>Modifier : ${c.name}`;document.getElementById('f-name').value=c.name;document.getElementById('f-spacing').value=c.spacing;document.getElementById('f-tol').value=c.tol;document.getElementById('f-turn').value=c.turn||0;buildHoleInputs(c.par,c.mins);showTab('nouveau');}
-
 function saveCourse(){
   const name=document.getElementById('f-name').value.trim();
   if(!name){showToast('Entrez un nom pour le parcours');return;}
@@ -601,23 +466,20 @@ function saveCourse(){
   if(editIdx>=0){courses[editIdx]=obj;showToast('Parcours modifié !');}else{courses.push(obj);showToast('Parcours ajouté !');}
   saveData();editIdx=-1;populateCourseSelect();showTab('parcours');
 }
-
 function deleteCourse(i){if(!confirm(`Supprimer "${courses[i].name}" ?`))return;courses.splice(i,1);saveData();renderCourseList();populateCourseSelect();showToast('Parcours supprimé');}
 function cancelForm(){editIdx=-1;showTab(courses.length>0?'parcours':'suivi');}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
 
+/* ── Export / Import ── */
 function exportCourses(){
   if(!courses.length){showToast('Aucun parcours à exporter');return;}
   const data=JSON.stringify({version:1,exportDate:new Date().toISOString(),courses},null,2);
   const blob=new Blob([data],{type:'application/json'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download='marshal-parcours.json';
-  document.body.appendChild(a);a.click();
-  document.body.removeChild(a);URL.revokeObjectURL(url);
+  const a=document.createElement('a');a.href=url;a.download='marshal-parcours.json';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
   showToast('✓ '+courses.length+' parcours exportés !');
 }
-
 function importCourses(event){
   const file=event.target.files[0];if(!file)return;
   const reader=new FileReader();
@@ -651,9 +513,7 @@ function importCourses(event){
   reader.readAsText(file);
 }
 
-loadData();
-showTab('suivi');
-setNow();
+loadData();showTab('suivi');setNow();
 </script>
 </body>
 </html>
