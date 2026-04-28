@@ -295,7 +295,7 @@ tr.ttr td{background:#fef9c3;color:#713f12;font-style:italic}
 <div class="toast" id="toast"></div>
 
 <script>
-const KEY='marshal_v6';
+const KEY='marshal_v7';
 let courses=[],groups=[],shifts=[],editIdx=-1,groupIntervals={},nextGroupId=1;
 const COLORS=['#1a4a2e','#1d4ed8','#92400e','#7c3aed','#be185d','#0f766e'];
 
@@ -319,7 +319,7 @@ function previewShift(){
   const note = document.getElementById('h-calc-note');
   if(!inV || !outV){ note.style.display='none'; return; }
   const mins = calcMins(inV, outV);
-  if(mins <= 0){ note.style.display=''; note.textContent = 'Heure de sortie doit être après l'entrée'; return; }
+  if(mins <= 0){ note.style.display=''; note.textContent = "Heure de sortie doit être après l'entrée"; return; }
   const hrs = (mins/60).toFixed(2);
   note.style.display='';
   note.textContent = 'Durée : ' + fmtDuration(mins) + ' (' + hrs + 'h)';
@@ -342,9 +342,9 @@ function addShift(){
   const inV  = document.getElementById('h-in').value;
   const outV = document.getElementById('h-out').value;
   if(!date){ showToast('Entrez une date'); return; }
-  if(!inV || !outV){ showToast('Entrez les heures d'entrée et de sortie'); return; }
+  if(!inV || !outV){ showToast("Entrez les heures d'entrée et de sortie"); return; }
   const mins = calcMins(inV, outV);
-  if(mins <= 0){ showToast('Heure de sortie doit être après l'entrée'); return; }
+  if(mins <= 0){ showToast("Heure de sortie doit être après l'entrée"); return; }
   shifts.push({ id: Date.now(), date, role, in: inV, out: outV, mins });
   shifts.sort((a,b) => a.date < b.date ? 1 : a.date > b.date ? -1 : 0);
   saveData();
@@ -356,13 +356,13 @@ function addShift(){
 }
 
 function deleteShift(id){
-  if(!confirm('Supprimer cette entrée?')) return;
+  if(!confirm("Supprimer cette entrée?")) return;
   shifts = shifts.filter(s=>s.id!==id);
   saveData(); renderShifts();
 }
 
 function clearShifts(){
-  if(!confirm('Effacer tout l'historique des heures?')) return;
+  if(!confirm("Effacer tout l'historique des heures?")) return;
   shifts=[];
   saveData(); renderShifts();
 }
@@ -423,7 +423,7 @@ function renderShifts(){
         +'<div style="font-size:12px;color:var(--tm)">'+s.in+' – '+s.out+'</div>'
         +'</div>'
         +'<div style="text-align:right">'
-        +'<div style="font-size:15px;font-weight:600;font-family:'DM Mono',monospace;color:var(--gd)">'+fmtDuration(s.mins)+'</div>'
+        +'<div style="font-size:15px;font-weight:600;font-family:DM Mono,monospace;color:var(--gd)">'+fmtDuration(s.mins)+'</div>'
         +'<button onclick="deleteShift('+s.id+')" style="font-size:11px;height:24px;padding:0 8px;margin-top:3px;border-color:#fca5a5;color:var(--red);background:#fff5f5">✕</button>'
         +'</div>'
         +'</div>';
