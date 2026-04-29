@@ -197,7 +197,7 @@ tr.ttr td{background:#fef9c3;color:#713f12;font-style:italic}
   <!-- Résumé saison -->
   <div class="card" style="background:var(--gd);border-color:var(--gm)">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-      <div class="ct" style="margin-bottom:0;color:#fff"><div class="ci" style="background:rgba(255,255,255,0.15)">🏆</div>Saison 2025</div>
+      <div class="ct" style="margin-bottom:0;color:#fff"><div class="ci" style="background:rgba(255,255,255,0.15)">🏆</div>Saison 2026</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
       <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:12px;text-align:center">
@@ -229,7 +229,7 @@ tr.ttr td{background:#fef9c3;color:#713f12;font-style:italic}
     <div class="ct"><div class="ci">➕</div>Ajouter une présence</div>
     <div class="r2 field">
       <div><label>Date</label><input type="date" id="h-date" style="height:44px;padding:0 12px"/></div>
-      <div><label>Poste / Rôle</label><input type="text" id="h-role" placeholder="Marshallais, Starter..."/></div>
+      <div><label>Poste / Rôle</label><input type="text" id="h-role" placeholder="Marshal" value="Marshal"/></div>
     </div>
     <div class="r2 field" style="margin-bottom:0">
       <div><label>Heure d'entrée</label><input type="time" id="h-in" step="60"/></div>
@@ -338,7 +338,7 @@ function fmtDuration(mins){
 
 function addShift(){
   const date = document.getElementById('h-date').value;
-  const role = document.getElementById('h-role').value.trim() || 'Marshallais';
+  const role = document.getElementById('h-role').value.trim() || 'Marshal';
   const inV  = document.getElementById('h-in').value;
   const outV = document.getElementById('h-out').value;
   if(!date){ showToast('Entrez une date'); return; }
