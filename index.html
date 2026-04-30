@@ -199,18 +199,28 @@ tr.ttr td{background:#fef9c3;color:#713f12;font-style:italic}
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
       <div class="ct" style="margin-bottom:0;color:#fff"><div class="ci" style="background:rgba(255,255,255,0.15)">🏆</div>Saison 2026</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
       <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-size:11px;color:var(--gmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Heures</div>
+        <div style="font-size:11px;color:var(--gmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Heures travaillées</div>
         <div style="font-size:24px;font-weight:700;color:#fff;font-family:'DM Mono',monospace" id="h-total-hrs">0.0</div>
       </div>
       <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-size:11px;color:var(--gmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Parties</div>
+        <div style="font-size:11px;color:var(--gmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Heures restantes</div>
+        <div style="font-size:24px;font-weight:700;color:#fcd34d;font-family:'DM Mono',monospace" id="h-reste">0.0h</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+      <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:12px;text-align:center">
+        <div style="font-size:11px;color:var(--gmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Gagnées</div>
         <div style="font-size:24px;font-weight:700;color:#6ee8a0;font-family:'DM Mono',monospace" id="h-total-parties">0</div>
       </div>
       <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-size:11px;color:var(--gmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Reste</div>
-        <div style="font-size:24px;font-weight:700;color:#fcd34d;font-family:'DM Mono',monospace" id="h-reste">0.0h</div>
+        <div style="font-size:11px;color:var(--gmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Utilisées</div>
+        <div style="font-size:24px;font-weight:700;color:#fca5a5;font-family:'DM Mono',monospace" id="h-used-parties">0</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:12px;text-align:center">
+        <div style="font-size:11px;color:var(--gmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Solde</div>
+        <div style="font-size:24px;font-weight:700;color:#fff;font-family:'DM Mono',monospace" id="h-solde">0</div>
       </div>
     </div>
     <div style="margin-top:12px">
@@ -237,6 +247,27 @@ tr.ttr td{background:#fef9c3;color:#713f12;font-style:italic}
     </div>
     <div class="inote" id="h-calc-note" style="display:none;margin-top:10px"></div>
     <button class="bp" onclick="addShift()" style="width:100%;margin-top:12px">Enregistrer</button>
+  </div>
+
+  <!-- Utiliser des parties -->
+  <div class="card">
+    <div class="ct"><div class="ci">⛳</div>Enregistrer une partie jouée</div>
+    <div class="r2 field">
+      <div><label>Date</label><input type="date" id="g-date" style="height:44px;padding:0 12px"/></div>
+      <div><label>Nombre de joueurs</label>
+        <select id="g-players">
+          <option value="1">1 joueur (1 partie)</option>
+          <option value="2" selected>2 joueurs (2 parties)</option>
+          <option value="3">3 joueurs (3 parties)</option>
+          <option value="4">4 joueurs (4 parties)</option>
+        </select>
+      </div>
+    </div>
+    <div class="field" style="margin-bottom:0">
+      <label>Note (optionnel)</label>
+      <input type="text" id="g-note" placeholder="Ex: Moi et ma femme, tournoi..."/>
+    </div>
+    <button class="bp" onclick="addGame()" style="width:100%;margin-top:12px">Enregistrer la partie</button>
   </div>
 
   <!-- Historique -->
@@ -296,7 +327,7 @@ tr.ttr td{background:#fef9c3;color:#713f12;font-style:italic}
 
 <script>
 const KEY='marshal_v7';
-let courses=[],groups=[],shifts=[],editIdx=-1,groupIntervals={},nextGroupId=1;
+let courses=[],groups=[],shifts=[],games=[],editIdx=-1,groupIntervals={},nextGroupId=1;
 const COLORS=['#1a4a2e','#1d4ed8','#92400e','#7c3aed','#be185d','#0f766e'];
 
 
@@ -306,8 +337,11 @@ const HOURS_PER_GAME = 3;
 function setTodayDate(){
   const d = new Date();
   const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
+  const today = y+'-'+m+'-'+day;
   const el = document.getElementById('h-date');
-  if(el && !el.value) el.value = y+'-'+m+'-'+day;
+  if(el && !el.value) el.value = today;
+  const gel = document.getElementById('g-date');
+  if(gel && !gel.value) gel.value = today;
   // Live preview as user fills in times
   document.getElementById('h-in').addEventListener('input', previewShift);
   document.getElementById('h-out').addEventListener('input', previewShift);
@@ -363,70 +397,128 @@ function deleteShift(id){
 
 function clearShifts(){
   if(!confirm("Effacer tout l'historique des heures?")) return;
-  shifts=[];
+  shifts=[];games=[];
+  saveData(); renderShifts();
+}
+
+
+
+function addGame(){
+  const date    = document.getElementById('g-date').value;
+  const players = parseInt(document.getElementById('g-players').value);
+  const note    = document.getElementById('g-note').value.trim();
+  if(!date){ showToast('Entrez une date'); return; }
+  const totalGained = Math.floor(shifts.reduce((a,s)=>a+s.mins,0) / 60 / HOURS_PER_GAME);
+  const totalUsed   = games.reduce((a,g)=>a+g.players, 0);
+  if(totalUsed + players > totalGained){
+    if(!confirm('Attention : vous utilisez plus de parties que vous en avez gagnées. Continuer?')) return;
+  }
+  games.push({id:Date.now(), date, players, note});
+  games.sort((a,b)=>a.date<b.date?1:a.date>b.date?-1:0);
+  saveData();
+  document.getElementById('g-note').value='';
+  renderShifts();
+  showToast('Partie enregistrée : '+players+' joueur'+(players>1?'s':''));
+}
+
+function deleteGame(id){
+  if(!confirm('Supprimer cette partie?')) return;
+  games = games.filter(g=>g.id!==id);
   saveData(); renderShifts();
 }
 
 function renderShifts(){
-  const totalMins = shifts.reduce((a,s)=>a+s.mins, 0);
-  const totalHrs  = totalMins / 60;
-  const parties   = Math.floor(totalHrs / HOURS_PER_GAME);
-  const resteMins = totalMins % (HOURS_PER_GAME * 60);
-  const resteHrs  = resteMins / 60;
-  const progress  = Math.min(100, (resteHrs / HOURS_PER_GAME) * 100);
+  const totalMins   = shifts.reduce((a,s)=>a+s.mins, 0);
+  const totalHrs    = totalMins / 60;
+  const gained      = Math.floor(totalHrs / HOURS_PER_GAME);
+  const usedParties = games.reduce((a,g)=>a+g.players, 0);
+  const solde       = gained - usedParties;
+  const resteMins   = totalMins % (HOURS_PER_GAME * 60);
+  const resteHrs    = resteMins / 60;
+  const progress    = Math.min(100, (resteHrs / HOURS_PER_GAME) * 100);
 
-  document.getElementById('h-total-hrs').textContent    = totalHrs.toFixed(1);
-  document.getElementById('h-total-parties').textContent = parties;
-  document.getElementById('h-reste').textContent         = resteHrs.toFixed(1)+'h';
-  document.getElementById('h-progress-bar').style.width  = progress+'%';
-  document.getElementById('h-progress-txt').textContent  = resteHrs.toFixed(1)+' / '+HOURS_PER_GAME+'h';
+  document.getElementById('h-total-hrs').textContent     = totalHrs.toFixed(1);
+  document.getElementById('h-total-parties').textContent  = gained;
+  document.getElementById('h-used-parties').textContent   = usedParties;
+  document.getElementById('h-reste').textContent          = resteHrs.toFixed(1)+'h';
+  document.getElementById('h-progress-bar').style.width   = progress+'%';
+  document.getElementById('h-progress-txt').textContent   = resteHrs.toFixed(1)+' / '+HOURS_PER_GAME+'h';
+  const soldeEl = document.getElementById('h-solde');
+  soldeEl.textContent = solde;
+  soldeEl.style.color = solde < 0 ? '#fca5a5' : solde === 0 ? '#fcd34d' : '#6ee8a0';
+
+  // Merge shifts and games into one list sorted by date
+  const allItems = [
+    ...shifts.map(s=>({...s, type:'shift'})),
+    ...games.map(g=>({...g, type:'game'}))
+  ].sort((a,b)=>a.date<b.date?1:a.date>b.date?-1:0);
 
   const list = document.getElementById('h-list');
-  if(!shifts.length){
+  if(!allItems.length){
     list.innerHTML='<div class="empty"><div class="eico">📋</div>Aucune entrée.<br>Ajoutez votre première présence.</div>';
     return;
   }
 
   // Group by month
   const byMonth = {};
-  shifts.forEach(s=>{
-    const key = s.date.substring(0,7);
+  allItems.forEach(item=>{
+    const key = item.date.substring(0,7);
     if(!byMonth[key]) byMonth[key]=[];
-    byMonth[key].push(s);
+    byMonth[key].push(item);
   });
 
+  const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
   let html='';
   Object.keys(byMonth).sort().reverse().forEach(month=>{
-    const monthShifts = byMonth[month];
-    const monthMins = monthShifts.reduce((a,s)=>a+s.mins,0);
-    const monthHrs  = (monthMins/60).toFixed(1);
+    const items = byMonth[month];
+    const monthMins = items.filter(i=>i.type==='shift').reduce((a,s)=>a+s.mins,0);
+    const monthGames = items.filter(i=>i.type==='game').reduce((a,g)=>a+g.players,0);
     const [y,m] = month.split('-');
-    const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
     const monthLabel = monthNames[parseInt(m)-1]+' '+y;
+    const monthSummary = (monthMins>0?(monthMins/60).toFixed(1)+'h':'') + (monthMins>0&&monthGames>0?' · ':'') + (monthGames>0?'-'+monthGames+' partie'+(monthGames>1?'s':''):'');
 
     html += '<div style="font-size:12px;font-weight:600;color:var(--tm);text-transform:uppercase;letter-spacing:.4px;padding:8px 0 6px;display:flex;justify-content:space-between;align-items:center">'
       +'<span>'+monthLabel+'</span>'
-      +'<span style="background:var(--gp);color:var(--gd);padding:2px 10px;border-radius:12px;font-size:11px;">'+monthHrs+'h</span>'
+      +'<span style="background:var(--gp);color:var(--gd);padding:2px 10px;border-radius:12px;font-size:11px;">'+monthSummary+'</span>'
       +'</div>';
 
-    monthShifts.forEach(s=>{
-      const d = new Date(s.date+'T12:00:00');
+    items.forEach(item=>{
+      const d = new Date(item.date+'T12:00:00');
       const days = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
       const dayLabel = days[d.getDay()]+' '+d.getDate();
-      html += '<div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bo)">'
-        +'<div style="width:44px;text-align:center;background:var(--gp);border-radius:8px;padding:5px 4px;flex-shrink:0">'
-        +'<div style="font-size:11px;color:var(--tm)">'+dayLabel.split(' ')[0]+'</div>'
-        +'<div style="font-size:16px;font-weight:700;color:var(--gd)">'+dayLabel.split(' ')[1]+'</div>'
-        +'</div>'
-        +'<div style="flex:1">'
-        +'<div style="font-size:14px;font-weight:500">'+s.role+'</div>'
-        +'<div style="font-size:12px;color:var(--tm)">'+s.in+' – '+s.out+'</div>'
-        +'</div>'
-        +'<div style="text-align:right">'
-        +'<div style="font-size:15px;font-weight:600;font-family:DM Mono,monospace;color:var(--gd)">'+fmtDuration(s.mins)+'</div>'
-        +'<button onclick="deleteShift('+s.id+')" style="font-size:11px;height:24px;padding:0 8px;margin-top:3px;border-color:#fca5a5;color:var(--red);background:#fff5f5">✕</button>'
-        +'</div>'
-        +'</div>';
+
+      if(item.type==='shift'){
+        html += '<div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bo)">'
+          +'<div style="width:44px;text-align:center;background:var(--gp);border-radius:8px;padding:5px 4px;flex-shrink:0">'
+          +'<div style="font-size:11px;color:var(--tm)">'+dayLabel.split(' ')[0]+'</div>'
+          +'<div style="font-size:16px;font-weight:700;color:var(--gd)">'+dayLabel.split(' ')[1]+'</div>'
+          +'</div>'
+          +'<div style="flex:1">'
+          +'<div style="font-size:14px;font-weight:500">'+item.role+'</div>'
+          +'<div style="font-size:12px;color:var(--tm)">'+item.in+' – '+item.out+'</div>'
+          +'</div>'
+          +'<div style="text-align:right">'
+          +'<div style="font-size:15px;font-weight:600;font-family:DM Mono,monospace;color:var(--gd)">+'+fmtDuration(item.mins)+'</div>'
+          +'<button onclick="deleteShift('+item.id+')" style="font-size:11px;height:24px;padding:0 8px;margin-top:3px;border-color:#fca5a5;color:var(--red);background:#fff5f5">✕</button>'
+          +'</div>'
+          +'</div>';
+      } else {
+        const noteStr = item.note ? ' · '+item.note : '';
+        html += '<div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bo)">'
+          +'<div style="width:44px;text-align:center;background:#fee2e2;border-radius:8px;padding:5px 4px;flex-shrink:0">'
+          +'<div style="font-size:11px;color:#b91c1c">'+dayLabel.split(' ')[0]+'</div>'
+          +'<div style="font-size:16px;font-weight:700;color:#b91c1c">'+dayLabel.split(' ')[1]+'</div>'
+          +'</div>'
+          +'<div style="flex:1">'
+          +'<div style="font-size:14px;font-weight:500">🏌️ Partie jouée</div>'
+          +'<div style="font-size:12px;color:var(--tm)">'+item.players+' joueur'+(item.players>1?'s':'')+noteStr+'</div>'
+          +'</div>'
+          +'<div style="text-align:right">'
+          +'<div style="font-size:15px;font-weight:600;font-family:DM Mono,monospace;color:var(--red)">-'+item.players+' partie'+(item.players>1?'s':'')+'</div>'
+          +'<button onclick="deleteGame('+item.id+')" style="font-size:11px;height:24px;padding:0 8px;margin-top:3px;border-color:#fca5a5;color:var(--red);background:#fff5f5">✕</button>'
+          +'</div>'
+          +'</div>';
+      }
     });
   });
 
@@ -434,12 +526,12 @@ function renderShifts(){
 }
 
 function loadData(){
-  try{const d=localStorage.getItem(KEY);if(d){const p=JSON.parse(d);courses=p.courses||[];groups=p.groups||[];shifts=p.shifts||[];}}catch(e){}
+  try{const d=localStorage.getItem(KEY);if(d){const p=JSON.parse(d);courses=p.courses||[];groups=p.groups||[];shifts=p.shifts||[];games=p.games||[];games=p.games||[];}}catch(e){}
   if(!courses.length){courses=[{name:'Farnham 2026',spacing:8,tol:5,turn:10,par:[4,5,3,5,4,3,4,4,4,5,3,4,3,4,5,4,3,4],mins:[15,18,12,18,15,12,15,15,15,18,12,15,12,15,18,15,12,15]}];}
   groups.forEach(g=>{g.running=false;});
   saveData();
 }
-function saveData(){try{localStorage.setItem(KEY,JSON.stringify({courses,groups,shifts}));}catch(e){}}
+function saveData(){try{localStorage.setItem(KEY,JSON.stringify({courses,groups,shifts,games}));}catch(e){}}
 
 function showTab(t){
   ['suivi','groupes','heures','parcours','nouveau'].forEach(v=>{
